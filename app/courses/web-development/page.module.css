@@ -1,0 +1,410 @@
+
+.hero {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.heroImg {
+  object-fit: cover;
+}
+
+/* overlay gradient profesional */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.55) 35%,
+    rgba(0, 0, 0, 0.25) 65%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* teks hero */
+.heroText {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 520px;
+}
+
+.heroText span {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.heroText h1 {
+  font-size: 44px;
+  margin: 12px 0;
+  line-height: 1.2;
+}
+
+.heroText p {
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+
+/* ================== INFO + FILTER ================== */
+.topSection {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 32px;
+  padding: 50px 80px;
+}
+
+/* INFO BOX */
+.infoBox h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.infoBox p {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* ================== HIGHLIGHT INFO BOX ================== */
+.highlightBox {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f3d2e, #1f5e45);
+  color: white;
+}
+
+.iconBox {
+  min-width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.highlightBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlightBox li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.highlightBox li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #7cffb2;
+  font-weight: bold;
+}
+
+/* ================== FILTER ================== */
+.filter {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.filter h3 {
+  margin-bottom: 10px;
+}
+
+.filter select,
+.filter input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.filter button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================== BACK BUTTON ================== */
+.backBtn {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.backBtn:hover {
+  background: rgba(15, 61, 46, 0.9);
+  transform: translateX(-4px);
+}
+
+/* ================== COURSE GRID ================== */
+.courseGrid {
+  position: relative;
+  padding: 0 80px 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+
+  /* background utama */
+  background-color: #f9fbfa;
+  background-image: radial-gradient(
+    rgba(15, 61, 46, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+
+.courseGrid::before {
+  content: "";
+  position: absolute;
+
+  top: -370px;        /* ⬅️ NAIK JAUUUUH */
+  left: 0;
+  width: 100%;
+  height: 370px;      /* ⬅️ HARUS SAMA / LEBIH */
+
+  background-color: #f9fbfa;
+  background-image: radial-gradient(
+    rgba(15, 61, 46, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+
+  pointer-events: none;
+}
+
+/* ================== DOTTED SECTION ================== */
+.dottedSection {
+  position: relative;
+  background-color: #f9fbfa;
+
+  /* background titik */
+  background-image: radial-gradient(
+    rgba(15, 61, 46, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+
+  /* ⬇️ MEMBUAT TITIK IKUT MELENGKUNG */
+clip-path: path("M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0,100 Z");
+
+
+  padding-top: 120px;
+}
+
+
+/* ================== COURSE CARD ================== */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.08),
+    0 20px 40px rgba(0,0,0,.12);
+
+  overflow: hidden;
+}
+
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.12),
+    0 30px 60px rgba(0,0,0,.18);
+}
+
+.card img {
+  width: 240px;               /* gambar di samping */
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.cardBody {
+  position: relative;
+  z-index: 2;
+  max-width: 65%;
+}
+
+
+.cardBody h4 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.rating {
+  font-size: 14px;
+  color: #f4b400;
+  margin-bottom: 10px;
+}
+
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+
+/* ================== CARD FOOTER ================== */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardFooter button {
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cardFooter b {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f3d2e;
+}
+
+
+.cardFooter b {
+  font-size: 16px;
+  color: #0f3d2e;
+}
+
+/* ================== CURVE SVG ================== */
+.curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: block;
+  z-index: 5;
+}
+
+.curve svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* paksa section bawah naik ke lengkungan */
+.topSection {
+  position: relative;
+  z-index: 1;
+  margin-top: -80px;
+  padding-top: 120px;
+}
+
+.footer {
+  position: relative;
+  background: #0f3d2e;
+  color: white;
+
+   padding: 40px 80px 24px; /* ⬅️ JAUH LEBIH KECIL */
+  min-height: 120px; 
+
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;                 /* ⬅️ JANGAN NEGATIF */
+  left: 0;
+
+  width: 100%;
+  height: 50px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 20, 15, 0.95) 0%,
+    rgba(5, 20, 15, 0.8) 40%,
+    rgba(5, 20, 15, 0.6) 65%,
+    rgba(5, 20, 15, 0) 100%
+  );
+
+  pointer-events: none;
+}
+
+
+.footerBrand {
+  position: relative;   /* ⬅️ JANGAN absolute lagi */
+  margin-bottom: 30px;
+
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+}
+
+/* ================= BACKGROUND CARD HTML ================= */
+.bgHtml::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/html-css.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 260px;
+
+  opacity: 0.95;
+  pointer-events: none;
+}
