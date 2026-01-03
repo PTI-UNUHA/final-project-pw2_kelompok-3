@@ -539,3 +539,70 @@
   font-size: 12px;
   opacity: 0.7;
 }
+
+/* ================= MOBILE RESPONSIVE (LANDING PAGE) ================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 14px 24px;
+  }
+
+  .menu {
+    display: none; /* simpel dulu */
+  }
+
+  /* HERO */
+  .hero {
+    height: 520px;
+  }
+
+  .heroContent {
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 100%;
+  }
+
+  .heroContent h1 {
+    font-size: 34px;
+  }
+
+  .heroContent p {
+    font-size: 15px;
+  }
+
+  /* CATEGORY */
+  .category {
+    padding: 80px 24px 100px;
+  }
+
+  /* CARD GRID */
+  .cards {
+    grid-template-columns: 1fr; /* ⬅️ INI KUNCI */
+    gap: 24px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 70px 24px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+  }
+
+  .cta p {
+    font-size: 15px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .footerTop {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

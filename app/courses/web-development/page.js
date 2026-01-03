@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
-
 
 export default function CoursesPage() {
   const router = useRouter();
+
   return (
     <>
       {/* ================= HERO ================= */}
@@ -20,13 +20,13 @@ export default function CoursesPage() {
         />
 
         <div className={styles.overlay}></div>
-        <button
-        className={styles.backBtn}
-        onClick={() => router.back()}
-      >
-        ← Kembali
-      </button>
 
+        <button
+          className={styles.backBtn}
+          onClick={() => router.back()}
+        >
+          ← Kembali
+        </button>
 
         <div className={styles.heroText}>
           <span>Home &gt; Kategori Kursus &gt; Web Development</span>
@@ -85,43 +85,41 @@ export default function CoursesPage() {
 
       {/* ================= LIST KURSUS ================= */}
       <section className={styles.courseGrid}>
-  <CourseCard
-    bg="bgHtml"
-    title="Belajar HTML & CSS dari Nol"
-    rating="4.9 | 289 | Pemula"
-    desc="Pelajari dasar HTML dan CSS dengan mudah."
-    price="Gratis"
-  />
+        <CourseCard
+          bg="bgHtml"
+          title="Belajar HTML & CSS dari Nol"
+          rating="4.9 | 289 | Pemula"
+          desc="Pelajari dasar HTML dan CSS dengan mudah."
+          price="Gratis"
+        />
 
-  <CourseCard
-    bg="bgJs"
-    title="JavaScript untuk Pemula"
-    rating="4.8 | 312 | Pemula"
-    desc="Belajar JavaScript dari dasar."
-    price="Rp 120.000"
-  />
+        <CourseCard
+          bg="bgJs"
+          title="JavaScript untuk Pemula"
+          rating="4.8 | 312 | Pemula"
+          desc="Belajar JavaScript dari dasar."
+          price="Rp 120.000"
+        />
 
-  <CourseCard
-    bg="bgBootstrap"
-    title="Framework CSS: Bootstrap"
-    rating="4.7 | 231 | Menengah"
-    desc="Bootstrap untuk web responsif."
-    price="Rp 150.000"
-  />
+        <CourseCard
+          bg="bgBootstrap"
+          title="Framework CSS: Bootstrap"
+          rating="4.7 | 231 | Menengah"
+          desc="Bootstrap untuk web responsif."
+          price="Rp 150.000"
+        />
 
-  <CourseCard
-    bg="bgReact"
-    title="React JS: Dasar Hingga Mahir"
-    rating="4.9 | 476 | Menengah - Mahir"
-    desc="Bangun aplikasi front-end modern."
-    price="Rp 200.000"
-  />
-</section>
-
+        <CourseCard
+          bg="bgReact"
+          title="React JS: Dasar Hingga Mahir"
+          rating="4.9 | 476 | Menengah - Mahir"
+          desc="Bangun aplikasi front-end modern."
+          price="Rp 200.000"
+        />
+      </section>
 
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>
-        {/* Tulisan di area gradient */}
         <div className={styles.footerBrand}>EduCourse</div>
 
         <div className={styles.footerInner}>

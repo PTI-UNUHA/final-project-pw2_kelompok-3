@@ -408,3 +408,95 @@ clip-path: path("M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0
   opacity: 0.95;
   pointer-events: none;
 }
+
+/* ===================================================== */
+
+.card.bgHtml::after,
+.card.bgJs::after,
+.card.bgBootstrap::after,
+.card.bgReact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* HTML */
+.card.bgHtml::after {
+  background:
+    radial-gradient(circle at right center, rgba(255,102,0,.28), transparent 55%),
+    linear-gradient(to left, rgba(255,102,0,.18), transparent 65%);
+}
+
+/* JS */
+.card.bgJs::after {
+  background:
+    radial-gradient(circle at right center, rgba(247,223,30,.3), transparent 55%),
+    linear-gradient(to left, rgba(247,223,30,.2), transparent 65%);
+}
+
+/* Bootstrap */
+.card.bgBootstrap::after {
+  background:
+    radial-gradient(circle at right center, rgba(121,82,179,.3), transparent 55%),
+    linear-gradient(to left, rgba(121,82,179,.2), transparent 65%);
+}
+
+/* React */
+.card.bgReact::after {
+  background:
+    radial-gradient(circle at right center, rgba(97,218,251,.32), transparent 55%),
+    linear-gradient(to left, rgba(97,218,251,.22), transparent 65%);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero {
+    height: 520px;
+  }
+
+  .heroText {
+    left: 24px;
+    right: 24px;
+    max-width: 100%;
+  }
+
+  .heroText h1 {
+    font-size: 32px;
+  }
+
+  .heroText p {
+    font-size: 15px;
+  }
+
+  /* INFO + FILTER */
+  .topSection {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    margin-top: -60px;
+  }
+
+  /* COURSE GRID */
+  .courseGrid {
+    grid-template-columns: 1fr;
+    padding: 0 24px 60px;
+  }
+
+  /* CARD */
+  .cardBody {
+    max-width: 100%;
+  }
+
+  /* FILTER */
+  .filter {
+    margin-top: 20px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 32px 24px;
+    text-align: center;
+  }
+}
