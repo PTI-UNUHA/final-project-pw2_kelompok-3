@@ -29,7 +29,6 @@ export default function CoursesPage() {
         </button>
 
         <div className={styles.heroText}>
-          <span>Home &gt; Kategori Kursus &gt; Web Development</span>
           <h1>Kursus Web Development</h1>
           <p>
             Pelajari cara membuat website <br />
@@ -37,16 +36,10 @@ export default function CoursesPage() {
           </p>
         </div>
 
-        {/* Lengkungan */}
         <div className={styles.curve}>
           <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
             <path
-              d="M0,40 
-                 C240,80 480,90 720,80 
-                 960,70 1200,30 1440,40 
-                 L1440,100 
-                 L0,100 
-                 Z"
+              d="M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0,100 Z"
               fill="#ffffff"
             />
           </svg>
@@ -121,15 +114,7 @@ export default function CoursesPage() {
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>
         <div className={styles.footerBrand}>EduCourse</div>
-
-        <div className={styles.footerInner}>
-          <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
-
-          <div className={styles.footerLinks}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
-        </div>
+        <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
       </footer>
     </>
   );
@@ -139,10 +124,13 @@ export default function CoursesPage() {
 function CourseCard({ bg, title, rating, desc, price }) {
   return (
     <div className={`${styles.card} ${styles[bg]}`}>
+      <div className={styles.cardImage}></div>
+
       <div className={styles.cardBody}>
         <h4>{title}</h4>
         <span className={styles.rating}>⭐ {rating}</span>
         <p>{desc}</p>
+
         <div className={styles.cardFooter}>
           <button>Daftar Kursus</button>
           <b>{price}</b>

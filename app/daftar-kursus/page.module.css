@@ -1,0 +1,126 @@
+/* ===== HERO ===== */
+.hero {
+  height: 320px;
+  background: linear-gradient(
+      rgba(15, 61, 46, 0.75),
+      rgba(15, 61, 46, 0.85)
+    );
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.heroText {
+  padding-left: 80px;
+  color: white;
+  max-width: 600px;
+}
+
+.heroText span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.heroText h1 {
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.heroText p {
+  line-height: 1.6;
+}
+
+.backBtn {
+  position: absolute;
+  top: 40px;
+  left: 24px;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ===== FORM ===== */
+.formSection {
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  background: #f9fbfa;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.1);
+}
+
+.formCard h2 {
+  margin-bottom: 4px;
+}
+
+.sub {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.field textarea {
+  resize: none;
+  height: 100px;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #0f3d2e;
+  color: white;
+  text-align: center;
+  padding: 32px;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .heroText {
+    padding-left: 24px;
+  }
+
+  .heroText h1 {
+    font-size: 32px;
+  }
+}

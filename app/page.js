@@ -3,20 +3,24 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <>
+    <div className={styles.homeWrapper}>
       {/* NAVBAR */}
       <header className={styles.navbar}>
-        <div className={styles.brand}>
-          <span className={styles.logo}>EduCourse</span>
+        <div className={styles.navbarInner}>
+          <div className={styles.brand}>
+            <span className={styles.logo}>EduCourse</span>
+          </div>
+
+          <nav className={styles.menu}>
+            <Link href="/" className={styles.active}>Home</Link>
+            <Link href="/courses">Courses</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/register" className={styles.register}>Register</Link>
+          </nav>
         </div>
-        <nav className={styles.menu}>
-          <a className={styles.active}>Home</a>
-          <a>Courses</a>
-          <a>About</a>
-          <a>Contact</a>
-          <button className={styles.register}>Register</button>
-        </nav>
       </header>
+
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -28,9 +32,12 @@ export default function LandingPage() {
             Platform Katalog Kursus Online <br />
             Mahasiswa Universitas Nurul Huda.
           </p>
+        <Link href="/jelajahi-kursus">
           <button className={styles.primaryBtn}>
             Jelajahi Kursus →
           </button>
+        </Link>
+
         </div>
 
         {/* ===== CURVE (FINAL – DIBENERIN) ===== */}
@@ -64,7 +71,7 @@ export default function LandingPage() {
               <p>
                 Mekanisme pembuatan website dengan HTML, CSS, dan JavaScript.
               </p>
-             <Link href="/courses/web-development">
+             <Link href="/web-development">
               <button>Lihat Kursus →</button>
             </Link>
 
@@ -77,9 +84,15 @@ export default function LandingPage() {
               <p>
                 Desain dan pengembangan aplikasi mobile yang interaktif dan responsif.
               </p>
+
+            <Link href="/mobile-development">
               <button>Lihat Kursus →</button>
+            </Link>
+
+
             </div>
           </div>
+
 
           <div className={styles.card}>
             <div className={styles.cardTop}>UI/UX Design</div>
@@ -87,14 +100,19 @@ export default function LandingPage() {
               <p>
                 Mengerti dasar desain antarmuka, prototipe, dan pengalaman pengguna.
               </p>
+             <Link href="/uiux-design">
               <button>Lihat Kursus →</button>
+            </Link>
+
             </div>
           </div>
         </div>
 
+       <Link href="/courses">
         <button className={`${styles.primaryBtn} ${styles.center}`}>
           Lihat Semua Kursus →
         </button>
+      </Link>
       </section>
 
       {/* CTA */}
@@ -104,9 +122,13 @@ export default function LandingPage() {
         <p>
           Gabung bersama mahasiswa UNUHA dan mulailah perjalanan belajarmu di EduCourse!
         </p>
+
+      <Link href="/daftar-kursus">
         <button className={styles.primaryBtn}>
           Daftar Sekarang →
         </button>
+      </Link>
+
       </section>
 
       {/* FOOTER */}
@@ -122,6 +144,6 @@ export default function LandingPage() {
           © 2024 EduCourse UNUHA. All rights reserved.
         </p>
       </footer>
-    </>
+    </div>
   );
 }

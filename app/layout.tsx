@@ -1,25 +1,42 @@
-import { ReactNode } from "react";
-import type { Viewport } from "next";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "EduCourse UNUHA",
-  description: "Landing Page EduCourse UNUHA",
+  description: "Platform Katalog Kursus Online Mahasiswa Universitas Nurul Huda",
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
-
-interface Props {
-  children?: ReactNode;
-}
-
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }) {
   return (
     <html lang="id">
-      <body>{children}</body>
+      <body>
+        {/* NAVBAR */}
+        <header className="navbar">
+          <div className="navbarInner">
+            <span className="logo">EduCourse</span>
+
+            <nav className="menu">
+              <Link href="/">Home</Link>
+              <Link href="/courses">Courses</Link>
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/register" className="register">
+                Register
+              </Link>
+            </nav>
+          </div>
+        </header>
+
+        {/* ISI HALAMAN */}
+        <main className="pageContent">
+          {children}
+        </main>
+
+        {/* FOOTER */}
+        <footer className="footer">
+          © 2024 EduCourse UNUHA
+        </footer>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,338 @@
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: linear-gradient(135deg, #0f3d2e, #145c43);
+  z-index: 1000;
+}
+
+.navbarInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 50px;
+}
+
+.heroImg {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.35)
+  );
+}
+
+.heroText {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 520px;
+  z-index: 2;
+}
+
+.heroText span {
+  font-size: 14px;
+  opacity: .85;
+}
+
+.heroText h1 {
+  font-size: 44px;
+  margin: 12px 0;
+}
+
+.heroText p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.backBtn {
+  position: absolute;
+  top: 40spx;
+  left: 32px;
+  z-index: 3;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.45);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===================== CURVE ===================== */
+.curve svg {
+  display: block;
+}
+
+/* ===================== INFO + FILTER ===================== */
+.topSection {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 32px;
+  padding: 50px 80px;
+  margin-top: -40px;
+}
+
+.infoBox h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.infoBox p {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.highlightBox {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f3d2e, #1f5e45);
+  color: white;
+}
+
+.iconBox {
+  min-width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.highlightBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlightBox li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+}
+
+.highlightBox li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #7cffb2;
+}
+
+/* ===================== FILTER ===================== */
+.filter {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ===================== COURSE GRID ===================== */
+.courseGrid {
+  padding: 0 80px 80px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 32px;
+  background-color: #f9fbfa;
+  background-image: radial-gradient(
+    rgba(15,61,46,.15) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+
+/* ===================== COURSE CARD ===================== */
+.card {
+  position: relative;
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  min-height: 190px;
+
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+  align-items: center;
+
+  overflow: hidden;
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.08),
+    0 20px 40px rgba(0,0,0,.12);
+}
+
+/* === LAYER FIX (INI KUNCI GAMBAR MUNCUL) === */
+.card::before {
+  content: "<div class='course'>\A  <h1>EduCourse</h1>\A  <p>Learn Web Dev</p>\A</div>";
+  white-space: pre;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+  color: rgba(0,0,0,.08);
+  z-index: 0;
+}
+
+/* ===================== CARD IMAGE ===================== */
+.cardImage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 160px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== REAL IT IMAGE ===== */
+.bgHtml .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085");
+}
+
+.bgJs .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+}
+
+.bgBootstrap .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+}
+
+.bgReact .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1555066931-4365d14bab8c");
+}
+
+/* ===================== CARD BODY ===================== */
+.cardBody {
+  position: relative;
+  z-index: 2;
+}
+
+.cardBody h4 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.rating {
+  font-size: 14px;
+  color: #f4b400;
+  margin-bottom: 10px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardFooter button {
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+}
+
+.cardFooter b {
+  color: #0f3d2e;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background: #0f3d2e;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .heroText {
+    left: 24px;
+    right: 24px;
+  }
+
+  .topSection {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+  }
+
+  .courseGrid {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .cardImage {
+    height: 180px;
+  }
+}
+
+.curve {
+  position: absolute;
+  bottom: -5px; /* ⬅️ FIX garis misterius */
+}
+
+/* ================= FIX FILTER STYLE ================= */
+.filter select,
+.filter input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter select {
+  appearance: none;
+  background-color: white;
+}
+
+.filter button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.filter button:hover {
+  background: #145c43;
+}
+
+
