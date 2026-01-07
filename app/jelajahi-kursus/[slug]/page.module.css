@@ -1,0 +1,91 @@
+.hero {
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+}
+.backBtn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.heroContent {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  color: white;
+  max-width: 600px;
+}
+.container {
+  padding: 20px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  margin-top: -30px;
+}
+.gallery {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+  gap: 10px;
+}
+.galleryImg {
+  height: 120px;
+  background-size: cover;
+  border-radius: 10px;
+}
+.section {
+  margin-top: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 12px;
+}
+.box, .boxAlt {
+  padding: 14px;
+  border-radius: 10px;
+  background: #f4f6f5;
+}
+.accordion {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.accordion button {
+  width: 100%;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+.testi {
+  display: grid;
+  gap: 12px;
+}
+.testiCard {
+  background: #f4f6f5;
+  padding: 14px;
+  border-radius: 10px;
+}
+.cta {
+  margin: 50px 0;
+  padding: 30px;
+  background: #0f3d2e;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+.cta button {
+  margin-top: 12px;
+  padding: 12px 20px;
+}

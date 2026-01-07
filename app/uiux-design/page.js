@@ -1,114 +1,192 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import styles from "./page.module.css";
+
+/* ================= DATA UI/UX ================= */
+const courses = [
+  {
+    id: 1,
+    title: "UI Design dengan Figma",
+    level: "Pemula",
+    desc: "Mendesain antarmuka aplikasi modern dengan Figma.",
+    price: "Gratis",
+    bg: "bgFigma",
+  },
+  {
+    id: 2,
+    title: "UX Research Dasar",
+    level: "Pemula",
+    desc: "Riset user untuk memahami kebutuhan pengguna.",
+    price: "Rp 120.000",
+    bg: "bgUxResearch",
+  },
+  {
+    id: 3,
+    title: "Wireframe & User Flow",
+    level: "Menengah",
+    desc: "Menyusun alur aplikasi yang efektif dan logis.",
+    price: "Rp 130.000",
+    bg: "bgWireframe",
+  },
+  {
+    id: 4,
+    title: "Prototype Interaktif",
+    level: "Menengah",
+    desc: "Membuat prototype interaktif untuk usability testing.",
+    price: "Rp 150.000",
+    bg: "bgPrototype",
+  },
+  {
+    id: 5,
+    title: "Design System",
+    level: "Menengah",
+    desc: "Membangun sistem desain yang konsisten.",
+    price: "Rp 170.000",
+    bg: "bgDesignSystem",
+  },
+  {
+    id: 6,
+    title: "UI/UX Portfolio Project",
+    level: "Lanjutan",
+    desc: "Studi kasus nyata untuk portofolio UI/UX.",
+    price: "Rp 200.000",
+    bg: "bgPortfolio",
+  },
+];
 
 export default function UiuxDesignPage() {
   const router = useRouter();
+  const [level, setLevel] = useState("Semua");
+  const [search, setSearch] = useState("");
+
+  const filteredCourses = courses.filter((c) => {
+    const matchLevel = level === "Semua" || c.level === level;
+    const matchSearch = c.title.toLowerCase().includes(search.toLowerCase());
+    return matchLevel && matchSearch;
+  });
 
   return (
     <>
-      {/* ================= HERO ================= */}
-    <section className={styles.hero}>
-      <Image
-        src="/unuha.jpg"   // simpan di /public
-        alt="UI UX Design"
-        fill
-        priority
-        className={styles.heroImg}
-      />
+      {/* HERO */}
+      <section className={`${styles.hero} ${styles.sectionAnimate}`}>
+        <Image
+          src="/unuha.jpg"
+          alt="UI UX Design"
+          fill
+          priority
+          className={styles.heroImg}
+        />
+        <div className={styles.overlay} />
 
-      <div className={styles.overlay}></div>
+        <button className={styles.backBtn} onClick={() => router.push("/")}>
+          ← Home
+        </button>
 
-      <button className={styles.backBtn} onClick={() => router.back()}>
-        ← Kembali
-      </button>
+        <div className={styles.heroContent}>
+          <span className={styles.breadcrumb}>
+            Home / Courses / UI/UX Design
+          </span>
+          <h1>UI / UX Design</h1>
+          <p>
+            Jalur pembelajaran untuk membangun desain
+            aplikasi & website yang user-friendly.
+          </p>
+        </div>
+      </section>
 
-      <div className={styles.heroText}>
-        <h1>Kursus UI/UX Design</h1>
-        <p>
-          Bangun desain aplikasi & website <br />
-          yang user-friendly dan profesional.
-        </p>
-      </div>
-
-      <div className={styles.curve}>
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-          <path
-            d="M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0,100 Z"
-            fill="#ffffff"
-          />
-        </svg>
-      </div>
-    </section>
-
-      {/* ================= INFO + FILTER ================= */}
-      <section className={styles.topSection}>
+      {/* INFO + FILTER */}
+      <section className={`${styles.topSection} ${styles.sectionAnimate}`}>
         <div className={styles.infoBox}>
-          <h2>Kursus UI/UX Design</h2>
-          <p>Bangun desain aplikasi & website yang user-friendly.</p>
-
-          <div className={styles.highlightBox}>
-            <div className={styles.iconBox}>🎨</div>
-            <ul>
-              <li>UI Design & UX Research</li>
-              <li>Wireframe & Prototype</li>
-              <li>Design System</li>
-              <li>Studi Kasus Nyata</li>
-            </ul>
-          </div>
+          <h2>Kenapa UI/UX Design?</h2>
+          <ul className={styles.keyList}>
+            <li>User Research & Usability</li>
+            <li>Wireframe & Prototype</li>
+            <li>Design System</li>
+            <li>Portofolio berbasis studi kasus</li>
+          </ul>
         </div>
 
         <aside className={styles.filter}>
           <h3>Filter Kursus</h3>
-          <select>
-            <option>Semua Tingkat</option>
-          </select>
-          <select>
-            <option>Semua Bahasa</option>
-          </select>
-          <input placeholder="Cari kursus..." />
-          <button>Filter</button>
+
+          <div className={styles.filterGroup}>
+            <span>Tingkat</span>
+            <div className={styles.levelGroup}>
+              {["Semua", "Pemula", "Menengah", "Lanjutan"].map((item) => (
+                <button
+                  key={item}
+                  className={`${styles.levelBtn} ${
+                    level === item ? styles.active : ""
+                  }`}
+                  onClick={() => setLevel(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.filterGroup}>
+            <span>Cari</span>
+            <input
+              placeholder="Cari kursus UI/UX..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.resultInfo}>
+            {filteredCourses.length} dari {courses.length} kursus
+          </div>
         </aside>
       </section>
 
-      {/* ================= LIST KURSUS ================= */}
-      <section className={styles.courseGrid}>
-        <CourseCard bg="bgFigma" title="UI Design dengan Figma" rating="4.9 | 342 | Pemula" desc="Membangun aplikasi Android native." price="Gratis" />
-        <CourseCard bg="bgUxResearch" title="UX Research Dasar" />
-        <CourseCard bg="bgWireframe" title="Wireframe & User Flow" />
-        <CourseCard bg="bgPrototype" title="Prototype Interaktif" />
-        <CourseCard bg="bgDesignSystem" title="Design System" />
-        <CourseCard bg="bgPortfolio" title="UI/UX Portfolio Project" />
+      {/* GRID */}
+      <section className={`${styles.courseGrid} ${styles.sectionAnimate}`}>
+        {filteredCourses.map((course) => (
+          <CourseCard key={course.id} {...course} />
+        ))}
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* CTA */}
+      <section className={`${styles.cta} ${styles.sectionAnimate}`}>
+        <h2>Siap Menjadi UI/UX Designer?</h2>
+        <Link href="/contact">
+          <button className={styles.primaryBtn}>
+            Hubungi Admin →
+          </button>
+        </Link>
+      </section>
+
       <footer className={styles.footer}>
-        <div className={styles.footerBrand}>EduCourse</div>
-        <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
+        © 2024 EduCourse UNUHA
       </footer>
     </>
   );
 }
 
 /* ================= CARD ================= */
-function CourseCard({ bg, title, rating, desc, price }) {
+function CourseCard({ bg, title, level, desc, price }) {
   return (
-    <div className={`${styles.card} ${styles[bg]}`}>
-      <div className={styles.cardImage}></div>
-
+    <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
+      <div className={styles.cardImage} />
       <div className={styles.cardBody}>
+        <span className={styles.levelBadge}>{level}</span>
         <h4>{title}</h4>
-        <span className={styles.rating}>⭐ {rating}</span>
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-          <button>Daftar Kursus</button>
+        <Link href="/daftar?kursus=UI UX Design Dasar">
+          <button>Daftar</button>
+        </Link>
+
           <b>{price}</b>
         </div>
       </div>
     </div>
   );
 }
-

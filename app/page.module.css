@@ -1,90 +1,67 @@
-/* ================= NAVBAR ================= */
+/* ================= WRAPPER ================= */
+.homeWrapper {
+  overflow-x: hidden;
+}
+
 /* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 72px;
   background: linear-gradient(135deg, #0f3d2e, #145c43);
   z-index: 1000;
 }
 
-/* ISI NAVBAR */
 .navbarInner {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   height: 100%;
-
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
   padding: 0 24px;
 }
 
-/* BRAND */
 .brand {
-  color: #ffffff;
+  color: #fff;
   font-size: 20px;
   font-weight: 700;
 }
 
-/* MENU */
 .menu {
   display: flex;
-  align-items: center;
   gap: 28px;
+  align-items: center;
 }
 
-/* LINK MENU (ANTI UNGU TOTAL) */
 .menu a {
   color: #e6f4ee;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 500;
-
-  /* HILANGKAN WARNA UNGU */
-  outline: none;
 }
 
-.menu a:visited {
-  color: #e6f4ee;
-}
-
-.menu a:hover {
-  color: #ffffff;
-}
-
-/* MENU AKTIF */
 .active {
-  color: #ffffff;
-  font-weight: 700;
   border-bottom: 2px solid #9be3c1;
   padding-bottom: 4px;
 }
 
-/* REGISTER BUTTON */
 .register {
   background: #1f7a4f;
-  color: #ffffff !important;
   padding: 8px 18px;
   border-radius: 10px;
+  color: #fff;
   font-weight: 600;
-  text-decoration: none;
-}
-
-.register:hover {
-  background: #2fa36b;
 }
 
 /* ================= HERO ================= */
 .hero {
-  position: relative;
   height: 90vh;
   background: url("/unuha.jpg") center / cover no-repeat;
   display: flex;
   align-items: center;
+  position: relative;
+  margin-top: 72px;
 }
 
 .overlay {
@@ -92,20 +69,19 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(10, 45, 35, 0.845) 0%,
-    rgba(10, 45, 35, 0.555) 30%,
-    rgba(10, 45, 35, 0.265) 50%,
-    rgba(10, 45, 35, 0) 65%
+    rgba(10,45,35,.85),
+    rgba(10,45,35,.3),
+    transparent
   );
 }
-
 
 .heroContent {
   position: relative;
   z-index: 2;
   padding-left: 80px;
   max-width: 620px;
-  color: #ffffff;
+  color: #fff;
+  animation: fadeUp .9s ease both;
 }
 
 .heroContent h1 {
@@ -115,516 +91,228 @@
 
 .heroContent p {
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
-/* BUTTON UTAMA */
-/* ================= BUTTON UTAMA (PRO / GLASS STYLE) ================= */
+/* ================= BUTTON ================= */
 .primaryBtn {
-  position: relative;
-  background: linear-gradient(
-    to bottom,
-    #2f7d5b,
-    #1f5d45
-  );
-  color: #ffffff;
+  background: linear-gradient(#2f7d5b, #1f5d45);
+  color: #fff;
   padding: 12px 28px;
   border-radius: 8px;
-  font-size: 16px;
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.35),
-    0 6px 14px rgba(0,0,0,0.35);
+  border: none;
   cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-/* HIGHLIGHT CAHAYA ATAS */
-.primaryBtn::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  height: 45%;
-  border-radius: 6px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 0)
-  );
-  pointer-events: none;
-}
-
-/* HOVER */
 .primaryBtn:hover {
-  background: linear-gradient(
-    to bottom,
-    #3a8f6a,
-    #257a58
-  );
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
 }
 
-/* ACTIVE / DIKLIK */
 .primaryBtn:active {
-  transform: translateY(1px);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.35),
-    0 4px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(.96);
 }
-
-/* ================= CURVE PUTIH ================= */
-.curve svg {
-  display: block;
-}
-
 
 /* ================= CATEGORY ================= */
 .category {
-  position: relative;
-  padding: 100px 60px 120px;
   background: #f4f6f5;
-  overflow: hidden;
+  padding: 100px 60px 120px;
 }
 
-.category::before {
-  content: "";
-  position: absolute;
-  top: 90px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-color: #f4f6f5;
-  background-image:
-    radial-gradient(rgba(15, 61, 46, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(244,246,245,1) 0%, rgba(244,246,245,0) 140px);
-  background-size:
-    20px 20px,
-    100% 140px;
-
-  z-index: 0;
-}
-
-
-/* HEADER CATEGORY */
-/* ===== HEADER KATEGORI (FINAL) ===== */
-/* ===== HEADER KATEGORI (PIXEL-LOGIC) ===== */
-/* ===== HEADER KATEGORI – COPY LOOK ===== */
 .categoryHead {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 24px;
   margin-bottom: 40px;
 }
 
-/* ================= TITIK TRANSPARAN (TAMBAHAN SAJA) ================= */
-.category::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    rgba(2, 128, 81, 0.459) 1px,
-    transparent 1px
-  );
-  background-size: 14px 14px;
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-
-/* GARIS PANJANG MENYATU BACKGROUND */
-.categoryHead::after {
-  content: "";
-  position: absolute;
-  top: 22px;              /* sejajar judul */
-  left: 210px;            /* mulai setelah teks */
-  right: 220px;           /* berhenti sebelum dropdown */
-  height: 2px;
-  background: #d1d5d2;
-}
-
-/* KIRI */
 .titleBlock h2 {
   font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 6px;
 }
 
-.titleBlock p {
-  font-size: 14px;
-  color: #4b5563;
-}
-
-/* FILTER */
-/* FILTER – CSS MURNI */
-.filter {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 38px 10px 36px; /* kiri utk search, kanan utk panah */
-  background: #f2f3f5;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #374151;
-}
-
-/* ICON SEARCH (KIRI) */
-.filter::before {
-  content: "";
-  position: absolute;
-  left: 12px;
-  width: 14px;
-  height: 14px;
-  border: 2px solid #6b7280;
-  border-radius: 50%;
-}
-
-.filter::after {
-  content: "";
-  position: absolute;
-  left: 22px;
-  top: 50%;
-  width: 6px;
-  height: 2px;
-  background: #6b7280;
-  transform: rotate(45deg) translateY(-50%);
-  transform-origin: left center;
-}
-
-/* PANAH KE BAWAH (KANAN) */
-.filterText::after {
-  content: "";
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-right: 2px solid #6b7280;
-  border-bottom: 2px solid #6b7280;
-  transform: rotate(45deg) translateY(-50%);
-}
-
-/* CARD GRID */
 .cards {
-  position: relative;
-  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 30px;
 }
 
-/* CARD */
 .card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 14px;
-  box-shadow: 0 20px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 18px 30px rgba(0,0,0,.18);
   overflow: hidden;
+  transition: transform .3s ease;
 }
 
-/* ================= CARD HEADER (PRO VERSION) ================= */
+.card:hover {
+  transform: translateY(-8px);
+}
+
 .cardTop {
-  position: relative;
-  height: 88px;
-  padding: 20px 22px;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 18px;
+  height: 90px;
   display: flex;
   align-items: center;
-  letter-spacing: 0.2px;
-  overflow: hidden;
+  padding: 20px;
+  color: #fff;
+  font-weight: 600;
 }
-
-/* SHADING HALUS */
-.cardTop::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.15)
-  );
-  z-index: 0;
-}
-
-/* AKSEN GEOMETRI (KANAN ATAS) */
-.cardTop::after {
-  content: "";
-  position: absolute;
-  right: -30px;
-  top: -30px;
-  width: 120px;
-  height: 120px;
-  background: rgba(255,255,255,0.08);
-  transform: rotate(25deg);
-  z-index: 1;
-}
-
-/* TEXT DI ATAS */
-.cardTop {
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.65);
-}
-
 
 .card:nth-child(1) .cardTop {
   background:
-    linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.25)
-    ),
-    url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80")
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.25)),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80")
     center / cover no-repeat;
 }
 
 .card:nth-child(2) .cardTop {
   background:
-    linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.25)
-    ),
-    url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=80")
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.3)),
+    url("https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=80")
     center / cover no-repeat;
 }
 
 
 .card:nth-child(3) .cardTop {
   background:
-    linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.25)
-    ),
-    url("https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1600&q=80")
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.3)),
+    url("https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1600&q=80")
     center / cover no-repeat;
 }
 
 
 .cardBody {
-  padding: 22px 20px 26px;
-  background: #ffffff;
-  background-image: radial-gradient(
-    rgba(0, 0, 0, 0.03) 1px,
-    transparent 1px
-  );
-  background-size: 14px 14px;
-}
-
-.cardBody p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  padding: 22px;
 }
 
 .cardBody button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 22px auto 0; /* INI KUNCI TENGAH */
-
+  margin: 20px auto 0;
+  display: block;
+  background: linear-gradient(#2f7a5a,#1f5d45);
+  color: #fff;
   padding: 10px 26px;
-  gap: 8px;
-
-  background: linear-gradient(
-    to bottom,
-    #2f7a5a 0%,
-    #1f5d45 55%,
-    #174c38 100%
-  );
-
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 500;
-
   border-radius: 6px;
-  border: 1px solid #0f3d2e;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.35),
-    0 3px 6px rgba(0,0,0,0.35);
-
+  border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
+.cardBody button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
 
-/* BUTTON TENGAH */
+/* TOMBOL TENGAH */
 .center {
-  position: relative;
-  z-index: 2;
-  margin: 50px auto 0;
   display: block;
+  margin: 50px auto 0;
 }
 
 /* ================= CTA ================= */
-/* ================= CTA (COPY LOOK GAMBAR 1) ================= */
-/* ================= CTA (ABSTRACT / NO HUMAN) ================= */
-/* ================= CTA – TEXTURE REAL (NO IMAGE, NO HUMAN) ================= */
 .cta {
-  position: relative;
   padding: 90px 60px;
-  color: #ffffff;
-
-  /* WARNA DASAR */
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(8, 38, 30, 0.95),
-      rgba(5, 28, 22, 0.95)
-    );
-
-  overflow: hidden;
+  background: linear-gradient(#08261e,#051c16);
+  color: #fff;
 }
 
-/* TEKSTUR GRAIN / KAIN (REAL FEEL) */
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(255,255,255,0.08),
-      transparent 60%
-    );
-  pointer-events: none;
-}
-
-/* SHADING ATAS–BAWAH (DEPTH) */
-.cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.06),
-      rgba(0,0,0,0.25)
-    );
-  pointer-events: none;
-}
-
-/* TEKS */
 .cta h2 {
-  position: relative;
-  z-index: 2;
   font-size: 40px;
-  margin-bottom: 14px;
 }
 
-.cta p {
-  position: relative;
-  z-index: 2;
-  font-size: 16px;
-  max-width: 560px;
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
-/* DIVIDER HALUS ANTAR SECTION */
-.sectionDivider {
-  height: 80px;
-  background: linear-gradient(
-    to bottom,
-    rgba(40, 118, 79, 0.322),
-    rgba(244,246,245,0)
-  );
-}
- 
 /* ================= FOOTER ================= */
 .footer {
-  background: #0b2e22;
-  color: #ffffff;
-  padding: 30px 60px;
+  background: #1f2a3d;
+  color: #cbd5e1;
+  padding: 90px 60px 0;
 }
 
-.footerTop {
+.footerContainer {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1.2fr;
+  gap: 60px;
+}
+
+.footerBrand h3 {
+  font-size: 26px;
+  color: #4fd1c5;
+}
+
+.footerCol h4 {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footerCol a {
+  display: block;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+/* SERTIFIKASI */
+.certWrap {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.footerLinks {
-  display: flex;
-  gap: 20px;
-  font-size: 14px;
+.certItem {
+  width: 140px;
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.copy {
-  margin-top: 14px;
-  font-size: 12px;
-  opacity: 0.7;
+.certItem:nth-child(1) {
+  background-image: url("https://i.imgur.com/F2s4KkZ.png");
+}
+.certItem:nth-child(2) {
+  background-image: url("https://i.imgur.com/YV7E9ZC.png");
 }
 
-/* ================= MOBILE RESPONSIVE (LANDING PAGE) ================= */
+/* SOCIAL */
+.socialCard {
+  background: #27324a;
+  border-radius: 12px;
+  padding: 14px 16px 14px 52px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.socialCard::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.youtube::before { background-image: url("https://cdn-icons-png.flaticon.com/512/1384/1384060.png"); }
+.instagram::before { background-image: url("https://cdn-icons-png.flaticon.com/512/1384/1384063.png"); }
+.facebook::before { background-image: url("https://cdn-icons-png.flaticon.com/512/1384/1384053.png"); }
+.linkedin::before { background-image: url("https://cdn-icons-png.flaticon.com/512/1384/1384014.png"); }
+
+.footerBottom {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  background: #172033;
+  font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+  .menu { display: none; }
+  .heroContent { padding: 0 24px; }
+  .cards { grid-template-columns: 1fr; }
+  .footerContainer { grid-template-columns: 1fr; text-align: center; }
+}
 
-  /* NAVBAR */
-  .navbar {
-    padding: 14px 24px;
-  }
-
-  .menu {
-    display: none; /* simpel dulu */
-  }
-
-  /* HERO */
-  .hero {
-    height: 520px;
-  }
-
-  .heroContent {
-    padding-left: 24px;
-    padding-right: 24px;
-    max-width: 100%;
-  }
-
-  .heroContent h1 {
-    font-size: 34px;
-  }
-
-  .heroContent p {
-    font-size: 15px;
-  }
-
-  /* CATEGORY */
-  .category {
-    padding: 80px 24px 100px;
-  }
-
-  /* CARD GRID */
-  .cards {
-    grid-template-columns: 1fr; /* ⬅️ INI KUNCI */
-    gap: 24px;
-  }
-
-  /* CTA */
-  .cta {
-    padding: 70px 24px;
-  }
-
-  .cta h2 {
-    font-size: 30px;
-  }
-
-  .cta p {
-    font-size: 15px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 28px 24px;
-    text-align: center;
-  }
-
-  .footerTop {
-    flex-direction: column;
-    gap: 16px;
-  }
+/* ================= ANIM ================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

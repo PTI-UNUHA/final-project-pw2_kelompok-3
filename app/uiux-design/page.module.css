@@ -1,223 +1,322 @@
-/* ================= HERO ================= */
 .hero {
-  height: 420px;
-  background:
-    linear-gradient(
-      rgba(0,0,0,.65),
-      rgba(0,0,0,.4)
-    ),
-    url("https://images.unsplash.com/photo-1618788372246-79faff0c3742")
-      center / cover no-repeat;
   position: relative;
+  height: 420px;
+  overflow: hidden;
 }
 
-
-.heroImg {
-  object-fit: cover;
-}
+.heroImg { object-fit: cover; }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.35));
+  background: linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.3));
 }
 
-.heroText {
+.backBtn {
+  position: absolute;
+  top: 36px;
+  left: 32px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.45);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+}
+
+.heroContent {
   position: absolute;
   top: 50%;
   left: 80px;
   transform: translateY(-50%);
   color: white;
-  max-width: 520px;
-  z-index: 3;
 }
 
-.backBtn {
-  position: absolute;
-  top: 40px;
-  left: 32px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(0,0,0,.45);
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 4;
-}
+.breadcrumb { font-size: 13px; opacity: .85; }
 
-.curve svg {
-  display: block;
-}
-
-
-/* ================= INFO ================= */
 .topSection {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 2.2fr 1fr;
   gap: 32px;
-  padding: 50px 80px;
-
-  background-color: #f9fbfa;
-  background-image: radial-gradient(
-    rgba(15, 61, 46, 0.15) 1px,
-    transparent 1px
-  );
-  background-size: 18px 18px;
+  padding: 56px 80px;
 }
 
+.keyList { padding-left: 18px; }
 
-.highlightBox {
-  display: flex;
-  gap: 20px;
-  padding: 24px;
-  border-radius: 14px;
-  background: linear-gradient(135deg,#0f3d2e,#1f5e45);
-  color: white;
-}
-
-.iconBox {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-}
-
-/* ================= FILTER ================= */
 .filter {
   background: white;
-  padding: 22px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
 }
 
-.filter h3 {
-  margin-bottom: 12px;
+.levelGroup {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-
-.filter select,
-.filter input {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
+.levelBtn {
+  padding: 8px 14px;
+  border-radius: 999px;
   border: 1px solid #ddd;
-  font-size: 14px;
+  background: white;
+  cursor: pointer;
 }
 
-.filter button {
-  width: 100%;
-  margin-top: 12px;
-  padding: 12px;
+.levelBtn.active {
   background: #0f3d2e;
   color: white;
-  border: none;
-  border-radius: 10px;
 }
 
-
-.filter button:hover {
-  background: #145c43;
-}
-
-
-/* ================= GRID ================= */
 .courseGrid {
   padding: 0 80px 80px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 32px;
-
-  background-color: #f9fbfa;
-  background-image: radial-gradient(
-    rgba(15, 61, 46, 0.15) 1px,
-    transparent 1px
-  );
-  background-size: 18px 18px;
+  background: #f9fbfa;
 }
 
-/* ================= CARD ================= */
 .card {
   background: white;
-  border-radius: 18px;
-  padding: 24px;
+  border-radius: 22px;
+  padding: 22px;
   display: grid;
   grid-template-columns: 1fr 260px;
-  gap: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  gap: 22px;
+  transition: .3s;
+}
+
+/* ================= FIX DAFTAR & HARGA ================= */
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+/* TOMBOL DAFTAR */
+.cardFooter button {
+  background: #0f3d2e;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.cardFooter button:hover {
+  background: #145c43;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15,61,46,.35);
+}
+
+.cardFooter button:active {
+  transform: scale(.96);
+}
+
+/* HARGA / GRATIS */
+.cardFooter b {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* GRATIS KELIATAN LEBIH NIAT */
+.cardFooter b {
+  color: #0f3d2e;
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 768px) {
+  .cardFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .cardFooter button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cardFooter b {
+    text-align: right;
+    font-size: 14px;
+  }
+}
+
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(15,61,46,.2);
 }
 
 .cardImage {
   height: 160px;
-  border-radius: 14px;
+  border-radius: 16px;
   background-size: cover;
-  background-position: center;
 }
 
-.cardBody h4 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.rating {
-  font-size: 14px;
-  color: #f4b400;
-}
-
-/* ================= UIUX IMAGES ================= */
 .bgFigma .cardImage {
   background-image: url("https://images.unsplash.com/photo-1611224923853-80b023f02d71");
 }
-
 .bgUxResearch .cardImage {
   background-image: url("https://images.unsplash.com/photo-1558655146-d09347e92766");
 }
-
 .bgWireframe .cardImage {
   background-image: url("https://images.unsplash.com/photo-1587614382346-4ec70e388b28");
 }
-
 .bgPrototype .cardImage {
   background-image: url("https://images.unsplash.com/photo-1586717791821-3f44a563fa4c");
 }
-
 .bgDesignSystem .cardImage {
   background-image: url("https://images.unsplash.com/photo-1618788372246-79faff0c3742");
 }
-
 .bgPortfolio .cardImage {
   background-image: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+}
+
+.cta {
+  padding: 90px 24px;
+  text-align: center;
+}
+
+.primaryBtn {
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 999px;
 }
 
 .footer {
   background: #0f3d2e;
   color: white;
   text-align: center;
-  padding: 40px;
+  padding: 36px;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width:768px) {
-  .heroText {
-    left: 24px;
-    right: 24px;
+.sectionAnimate {
+  animation: fadeUp .6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 768px) {
+
+  /* HERO */
+  .hero {
+    height: 320px;
   }
 
+  .heroContent {
+    left: 20px;
+    right: 20px;
+    max-width: 100%;
+  }
+
+  .heroContent h1 {
+    font-size: 28px;
+  }
+
+  .heroContent p {
+    font-size: 14px;
+  }
+
+  .backBtn {
+    top: 16px;
+    left: 16px;
+    font-size: 13px;
+  }
+
+  /* INFO + FILTER JADI STACK */
   .topSection {
     grid-template-columns: 1fr;
-    padding: 32px 24px;
+    padding: 24px 20px;
   }
 
+  .infoBox h2 {
+    font-size: 22px;
+  }
+
+  .keyList li {
+    font-size: 14px;
+  }
+
+  /* FILTER */
+  .filter {
+    margin-top: 24px;
+  }
+
+  .levelGroup {
+    gap: 6px;
+  }
+
+  .levelBtn {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .filter input {
+    width: 100%;
+  }
+
+  /* GRID JADI 1 KOLOM */
   .courseGrid {
     grid-template-columns: 1fr;
-    padding: 24px;
+    padding: 24px 20px 60px;
   }
 
+  /* CARD */
   .card {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cardImage {
+    height: 180px;
+  }
+
+  .cardBody h4 {
+    font-size: 16px;
+  }
+
+  .cardBody p {
+    font-size: 14px;
+  }
+
+  .cardFooter {
+    gap: 12px;
+  }
+
+  .cardFooter button {
+    width: 100%;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 64px 20px;
+  }
+
+  .cta h2 {
+    font-size: 22px;
+  }
+
+  .primaryBtn {
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 28px 16px;
+    font-size: 13px;
   }
 }
-

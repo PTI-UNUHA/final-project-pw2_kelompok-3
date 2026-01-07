@@ -87,6 +87,25 @@ export default function CoursesPage() {
   );
 }
 
+/* ===================== TAMBAHAN LINK MAP ===================== */
+const courseLinks = {
+  "Web Development Dasar": "/courses/web-development",
+  "HTML & CSS Fundamental": "/courses/html-css",
+  "JavaScript Dasar": "/courses/java",
+  "React JS Fundamental": "/courses/react-js",
+
+  "Android Development (Kotlin)": "/courses/android",
+  "Flutter Mobile App": "/courses/flutter",
+  "React Native": "/courses/react-native",
+  "Firebase untuk Mobile App": "/courses/firebase",
+
+  "UI/UX Design Fundamental": "/courses/uiux-fundamental",
+  "UI/UX Mobile Design": "/courses/uiux-design",
+  "Figma untuk UI Design": "/courses/figma",
+  "UX Research & Wireframing": "/courses/ux"
+};
+
+/* ===================== COURSE CARD ===================== */
 function CourseCard({ bg, title }) {
   return (
     <div className={`${styles.card} ${styles[bg]}`}>
@@ -97,7 +116,9 @@ function CourseCard({ bg, title }) {
         <p className={styles.desc}>
           Materi lengkap + praktik langsung.
         </p>
-        <button>Lihat Kursus →</button>
+        <Link href={courseLinks[title]}>
+          <button>Lihat Kursus →</button>
+        </Link>
       </div>
     </div>
   );

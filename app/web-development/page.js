@@ -1,11 +1,57 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import styles from "./page.module.css";
 
-export default function CoursesPage() {
+/* ================= DATA ================= */
+const courses = [
+  {
+    id: 1,
+    title: "HTML & CSS Fundamental",
+    level: "Pemula",
+    desc: "Membangun struktur dan tampilan website modern.",
+    price: "Gratis",
+    bg: "bgHtml",
+  },
+  {
+    id: 2,
+    title: "JavaScript Dasar",
+    level: "Pemula",
+    desc: "Logika pemrograman & interaksi website.",
+    price: "Rp 120.000",
+    bg: "bgJs",
+  },
+  {
+    id: 3,
+    title: "Bootstrap Framework",
+    level: "Menengah",
+    desc: "Membuat layout responsif dengan cepat.",
+    price: "Rp 150.000",
+    bg: "bgBootstrap",
+  },
+  {
+    id: 4,
+    title: "React JS Fundamental",
+    level: "Menengah",
+    desc: "Frontend modern berbasis komponen.",
+    price: "Rp 200.000",
+    bg: "bgReact",
+  },
+];
+
+export default function WebDevelopmentPage() {
   const router = useRouter();
+  const [level, setLevel] = useState("Semua");
+  const [search, setSearch] = useState("");
+
+  const filteredCourses = courses.filter((c) => {
+    const matchLevel = level === "Semua" || c.level === level;
+    const matchSearch = c.title.toLowerCase().includes(search.toLowerCase());
+    return matchLevel && matchSearch;
+  });
 
   return (
     <>
@@ -18,121 +64,121 @@ export default function CoursesPage() {
           priority
           className={styles.heroImg}
         />
+        <div className={styles.overlay} />
 
-        <div className={styles.overlay}></div>
-
-        <button
-          className={styles.backBtn}
-          onClick={() => router.back()}
-        >
-          ← Kembali
+        <button className={styles.backBtn} onClick={() => router.push("/")}>
+          ← Home
         </button>
 
-        <div className={styles.heroText}>
-          <h1>Kursus Web Development</h1>
+        <div className={styles.heroContent}>
+          <span className={styles.breadcrumb}>
+            Home / Courses / Web Development
+          </span>
+          <h1>Web Development</h1>
           <p>
-            Pelajari cara membuat website <br />
-            dari dasar hingga mahir.
+            Jalur pembelajaran terstruktur untuk membangun
+            website modern dan profesional.
           </p>
-        </div>
-
-        <div className={styles.curve}>
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-            <path
-              d="M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0,100 Z"
-              fill="#ffffff"
-            />
-          </svg>
         </div>
       </section>
 
       {/* ================= INFO + FILTER ================= */}
       <section className={styles.topSection}>
         <div className={styles.infoBox}>
-          <h2>Kursus Web Development</h2>
-          <p>Pelajari cara membuat website dari dasar hingga mahir.</p>
+          <h2>Kenapa Web Development?</h2>
+          <p>
+            Web Development merupakan skill inti di dunia IT
+            yang digunakan pada website, sistem informasi,
+            dan aplikasi berbasis web.
+          </p>
 
-          <div className={styles.highlightBox}>
-            <div className={styles.iconBox}>{"</>"}</div>
-            <ul>
-              <li>HTML, CSS, JavaScript, Framework</li>
-              <li>Website responsif & interaktif</li>
-              <li>Materi praktis & studi kasus</li>
-              <li>Proyek nyata</li>
-            </ul>
-          </div>
+          <ul className={styles.keyList}>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Framework modern</li>
+            <li>Responsive & interaktif</li>
+            <li>Proyek berbasis praktik</li>
+          </ul>
         </div>
 
         <aside className={styles.filter}>
           <h3>Filter Kursus</h3>
-          <select>
-            <option>Semua Tingkat</option>
-          </select>
-          <select>
-            <option>Semua Bahasa</option>
-          </select>
-          <input placeholder="Cari kursus..." />
-          <button>Filter</button>
+
+          <div className={styles.filterGroup}>
+            <span>Tingkat</span>
+            <div className={styles.levelGroup}>
+              {["Semua", "Pemula", "Menengah"].map((item) => (
+                <button
+                  key={item}
+                  className={`${styles.levelBtn} ${
+                    level === item ? styles.active : ""
+                  }`}
+                  onClick={() => setLevel(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.filterGroup}>
+            <span>Cari</span>
+            <input
+              placeholder="Cari kursus..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.resultInfo}>
+            {filteredCourses.length} dari {courses.length} kursus
+          </div>
         </aside>
       </section>
 
-      {/* ================= LIST KURSUS ================= */}
+      {/* ================= COURSES ================= */}
       <section className={styles.courseGrid}>
-        <CourseCard
-          bg="bgHtml"
-          title="Belajar HTML & CSS dari Nol"
-          rating="4.9 | 289 | Pemula"
-          desc="Pelajari dasar HTML dan CSS dengan mudah."
-          price="Gratis"
-        />
-
-        <CourseCard
-          bg="bgJs"
-          title="JavaScript untuk Pemula"
-          rating="4.8 | 312 | Pemula"
-          desc="Belajar JavaScript dari dasar."
-          price="Rp 120.000"
-        />
-
-        <CourseCard
-          bg="bgBootstrap"
-          title="Framework CSS: Bootstrap"
-          rating="4.7 | 231 | Menengah"
-          desc="Bootstrap untuk web responsif."
-          price="Rp 150.000"
-        />
-
-        <CourseCard
-          bg="bgReact"
-          title="React JS: Dasar Hingga Mahir"
-          rating="4.9 | 476 | Menengah - Mahir"
-          desc="Bangun aplikasi front-end modern."
-          price="Rp 200.000"
-        />
+        {filteredCourses.map((course) => (
+          <CourseCard key={course.id} {...course} />
+        ))}
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* ================= CTA ================= */}
+      <section className={styles.cta}>
+        <h2>Siap Mulai Belajar?</h2>
+        <p>
+          Tingkatkan skill Web Development dan
+          bangun portfolio pertamamu.
+        </p>
+
+        <Link href="/contact">
+          <button className={styles.primaryBtn}>
+            Hubungi Admin →
+          </button>
+        </Link>
+      </section>
+
       <footer className={styles.footer}>
-        <div className={styles.footerBrand}>EduCourse</div>
-        <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
+        © 2024 EduCourse UNUHA
       </footer>
     </>
   );
 }
 
 /* ================= CARD ================= */
-function CourseCard({ bg, title, rating, desc, price }) {
+function CourseCard({ bg, title, level, desc, price }) {
   return (
-    <div className={`${styles.card} ${styles[bg]}`}>
-      <div className={styles.cardImage}></div>
-
+    <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
+      <div className={styles.cardImage} />
       <div className={styles.cardBody}>
+        <span className={styles.levelBadge}>{level}</span>
         <h4>{title}</h4>
-        <span className={styles.rating}>⭐ {rating}</span>
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-          <button>Daftar Kursus</button>
+        <Link href="/daftar?kursus=HTML & CSS Fundamental">
+          <button>Daftar</button>
+        </Link>
+
           <b>{price}</b>
         </div>
       </div>

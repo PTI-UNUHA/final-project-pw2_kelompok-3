@@ -1,0 +1,137 @@
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 340px;
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.heroContent {
+  position: relative;
+  margin-left: 80px;
+  max-width: 600px;
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 16px;
+  background: rgba(255,255,255,.2);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.breadcrumb {
+  margin-top: 14px;
+  font-size: 14px;
+  opacity: .9;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.lightSection {
+  background: #f9fbfa;
+  padding: 80px 24px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.desc {
+  max-width: 720px;
+  margin: 12px auto 0;
+  opacity: .8;
+}
+
+/* ===== GUIDE ===== */
+.guideGrid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+}
+
+.guideCard {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+}
+
+/* ===== FAQ ===== */
+.faqGrid {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+
+.faqItem {
+  background: white;
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.1);
+}
+
+/* ===== CTA ===== */
+.ctaSection {
+  padding: 90px 24px;
+  text-align: center;
+}
+
+.ctaBtn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 34px;
+  background: #0f3d2e;
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #092b20;
+  color: white;
+  text-align: center;
+  padding: 26px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .heroContent {
+    margin-left: 24px;
+  }
+
+  .guideGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}

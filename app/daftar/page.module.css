@@ -1,0 +1,71 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f3d2e, #1f5e45);
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.brand {
+  font-size: 16px;
+}
+
+.card {
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  margin: 24px auto;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 18px 36px rgba(0,0,0,.18);
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.kursus {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f5e45;
+  margin-bottom: 18px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.primaryBtn {
+  padding: 14px;
+  border-radius: 14px;
+  background: #1f5e45;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}

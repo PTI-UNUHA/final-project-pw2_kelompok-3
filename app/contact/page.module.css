@@ -1,0 +1,39 @@
+:root{--green:#0f3d2e;--dark:#092b20}
+.hero{position:relative;height:360px;background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.55)),
+url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+background-size:cover;background-position:center;display:flex;align-items:center}
+.overlay{position:absolute;inset:0}
+.heroContent{position:relative;margin-left:80px;max-width:620px;color:#fff}
+.badge{display:inline-block;margin-bottom:14px;padding:6px 16px;background:rgba(255,255,255,.2);border-radius:999px;font-size:13px}
+.heroActions{margin-top:18px;display:flex;gap:12px}
+.primaryBtn,.ghostBtn{padding:12px 20px;border-radius:999px;font-weight:600}
+.primaryBtn{background:#fff;color:#000}
+.ghostBtn{border:2px solid #fff;color:#fff}
+
+.announce{background:#f0f6f4}
+.announceInner{max-width:1100px;margin:auto;padding:14px 24px;display:flex;gap:8px;align-items:center}
+
+.section{padding:80px 24px;text-align:center}
+.lightSection{background:#f9fbfa;padding:80px 24px;text-align:center}
+
+.actionGrid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.actionCard{background:#fff;padding:28px;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.1)}
+.actionCard a{display:inline-block;margin-top:12px;font-weight:600;color:var(--green)}
+
+.statusGrid{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.statusCard{background:#fff;padding:16px;border-radius:14px;display:flex;gap:10px;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+.dotOk,.dotInfo{width:10px;height:10px;border-radius:50%}
+.dotOk{background:#22c55e}.dotInfo{background:#38bdf8}
+
+.infoGrid{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.infoCard{background:#fff;padding:26px;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+
+.mapBox{max-width:1000px;margin:32px auto}
+.mapBox iframe{width:100%;height:360px;border:none;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+
+.footer{background:var(--dark);color:#fff;text-align:center;padding:26px}
+@media(max-width:900px){
+.heroContent{margin-left:24px}
+.actionGrid,.infoGrid,.statusGrid{grid-template-columns:1fr}
+}

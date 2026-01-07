@@ -59,9 +59,6 @@ export default function LandingPage() {
             <p>Temukan bidang yang sesuai minatmu</p>
           </div>
 
-          <div className={styles.filter}>
-            <span className={styles.filterText}>Semua Kategori</span>
-          </div>
         </div>
 
         <div className={styles.cards}>
@@ -123,27 +120,62 @@ export default function LandingPage() {
           Gabung bersama mahasiswa UNUHA dan mulailah perjalanan belajarmu di EduCourse!
         </p>
 
-      <Link href="/daftar-kursus">
-        <button className={styles.primaryBtn}>
-          Daftar Sekarang →
-        </button>
-      </Link>
-
       </section>
 
-      {/* FOOTER */}
-      <footer className={styles.footer}>
-        <div className={styles.footerTop}>
-          <span className={styles.logo}>EduCourse</span>
-          <div className={styles.footerLinks}>
-            <a>Privacy Policy</a>
-            <a>Terms of Service</a>
-          </div>
-        </div>
-        <p className={styles.copy}>
-          © 2024 EduCourse UNUHA. All rights reserved.
-        </p>
-      </footer>
+{/* FOOTER */}
+<footer className={styles.footer}>
+  <div className={styles.footerContainer}>
+
+    {/* BRAND */}
+    <div className={styles.footerBrand}>
+      <h3>EduCourse</h3>
+      <p>
+        EduCourse adalah platform pembelajaran teknologi
+        untuk mahasiswa Universitas Nurul Huda
+        yang berfokus pada skill masa depan.
+      </p>
+
+      <ul>
+        <li>Universitas Nurul Huda</li>
+        <li>OKU Timur, Sumatera Selatan</li>
+        <li>Email: educourse@unuha.ac.id</li>
+        <li>Phone: +62 812-xxxx-xxxx</li>
+      </ul>
+    </div>
+
+    {/* QUICK LINKS */}
+    <div className={styles.footerCol}>
+      <h4>Quick Links</h4>
+      <a>About Us</a>
+      <a>Courses</a>
+      <a>Career</a>
+      <a>FAQs</a>
+    </div>
+
+    {/* SERTIFIKASI (CSS IMAGE) */}
+    <div className={styles.footerCol}>
+      <h4>Sertifikasi</h4>
+      <div className={styles.certWrap}>
+        <div className={styles.certItem}></div>
+        <div className={styles.certItem}></div>
+      </div>
+    </div>
+
+    {/* CONNECT (CSS ICON) */}
+    <div className={styles.footerCol}>
+      <h4>Connect With Us</h4>
+      <div className={`${styles.socialCard} ${styles.youtube}`}>Youtube</div>
+      <div className={`${styles.socialCard} ${styles.instagram}`}>Instagram</div>
+      <div className={`${styles.socialCard} ${styles.facebook}`}>Facebook</div>
+      <div className={`${styles.socialCard} ${styles.linkedin}`}>LinkedIn</div>
+    </div>
+
+  </div>
+
+  <div className={styles.footerBottom}>
+    © 2026 EduCourse UNUHA
+  </div>
+</footer>
     </div>
   );
 }

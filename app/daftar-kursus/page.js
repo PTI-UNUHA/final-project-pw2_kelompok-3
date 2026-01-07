@@ -1,7 +1,9 @@
 "use client";
 
+
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function DaftarKursusPage() {
   const router = useRouter();
@@ -71,9 +73,12 @@ export default function DaftarKursusPage() {
             <textarea placeholder="Ceritakan alasanmu..." />
           </div>
 
-        <button onClick={() => router.push("/sukses")}>
-        Kirim Pendaftaran
-        </button>
+          <Link href="/daftar-kursus/sukses">
+            <button type="button">
+              Kirim Pendaftaran
+            </button>
+          </Link>
+
 
         </form>
       </section>

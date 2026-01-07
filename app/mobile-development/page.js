@@ -1,16 +1,80 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import styles from "./page.module.css";
 
+/* ================= DATA KURSUS ================= */
+const courses = [
+  {
+    id: 1,
+    title: "Android Development (Kotlin)",
+    level: "Pemula",
+    desc: "Membangun aplikasi Android native menggunakan Kotlin.",
+    price: "Gratis",
+    bg: "bgAndroid",
+  },
+  {
+    id: 2,
+    title: "Flutter Mobile App",
+    level: "Menengah",
+    desc: "Satu codebase untuk Android dan iOS.",
+    price: "Rp 150.000",
+    bg: "bgFlutter",
+  },
+  {
+    id: 3,
+    title: "React Native",
+    level: "Menengah",
+    desc: "Mobile app dengan JavaScript dan React.",
+    price: "Rp 180.000",
+    bg: "bgReactNative",
+  },
+  {
+    id: 4,
+    title: "iOS Development (Swift)",
+    level: "Menengah",
+    desc: "Membangun aplikasi iOS modern dengan Swift.",
+    price: "Rp 170.000",
+    bg: "bgIos",
+  },
+  {
+    id: 5,
+    title: "Firebase untuk Mobile App",
+    level: "Menengah",
+    desc: "Auth, database, dan backend mobile.",
+    price: "Rp 130.000",
+    bg: "bgFirebase",
+  },
+  {
+    id: 6,
+    title: "UI/UX Mobile Design",
+    level: "Pemula",
+    desc: "Desain UI mobile modern & usable.",
+    price: "Rp 120.000",
+    bg: "bgUiMobile",
+  },
+];
 
 export default function MobileDevelopmentPage() {
   const router = useRouter();
 
+  /* ===== STATE FILTER (SAMA DENGAN WEB) ===== */
+  const [level, setLevel] = useState("Semua");
+  const [search, setSearch] = useState("");
+
+  const filteredCourses = courses.filter((c) => {
+    const matchLevel = level === "Semua" || c.level === level;
+    const matchSearch = c.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    return matchLevel && matchSearch;
+  });
+
   return (
     <>
-
       {/* ================= HERO ================= */}
       <section className={styles.hero}>
         <Image
@@ -20,141 +84,129 @@ export default function MobileDevelopmentPage() {
           priority
           className={styles.heroImg}
         />
-
-        <div className={styles.overlay}></div>
+        <div className={styles.overlay} />
 
         <button
           className={styles.backBtn}
-          onClick={() => router.back()}
+          onClick={() => router.push("/")}
         >
-          ← Kembali
+          ← Home
         </button>
 
-        <div className={styles.heroText}>
-          <h1>Kursus Mobile Development</h1>
+        <div className={styles.heroContent}>
+          <span className={styles.breadcrumb}>
+            Home / Courses / Mobile Development
+          </span>
+          <h1>Mobile Development</h1>
           <p>
-            Bangun aplikasi Android & iOS <br />
-            dengan teknologi modern.
+            Jalur pembelajaran untuk membangun aplikasi
+            Android dan iOS secara profesional.
           </p>
-        </div>
-
-        <div className={styles.curve}>
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-            <path
-              d="M0,40 C240,80 480,90 720,80 960,70 1200,30 1440,40 L1440,100 L0,100 Z"
-              fill="#ffffff"
-            />
-          </svg>
         </div>
       </section>
 
       {/* ================= INFO + FILTER ================= */}
       <section className={styles.topSection}>
         <div className={styles.infoBox}>
-          <h2>Kursus Mobile Development</h2>
-          <p>Pelajari pembuatan aplikasi mobile dari dasar hingga mahir.</p>
+          <h2>Kenapa Mobile Development?</h2>
+          <p>
+            Mobile Development adalah skill penting untuk
+            membangun aplikasi Android & iOS yang siap
+            dipublish.
+          </p>
 
-          <div className={styles.highlightBox}>
-            <div className={styles.iconBox}>📱</div>
-            <ul>
-              <li>Android & iOS Development</li>
-              <li>UI Mobile Profesional</li>
-              <li>API & Backend Integration</li>
-              <li>Build APK & Publish App</li>
-            </ul>
-          </div>
+          <ul className={styles.keyList}>
+            <li>Android & iOS Development</li>
+            <li>Framework lintas platform</li>
+            <li>Integrasi API & Firebase</li>
+            <li>Build & publish aplikasi</li>
+          </ul>
         </div>
 
+        {/* ===== FILTER (COPY 1:1 DARI WEB) ===== */}
         <aside className={styles.filter}>
           <h3>Filter Kursus</h3>
-          <select>
-            <option>Semua Tingkat</option>
-          </select>
-          <select>
-            <option>Semua Bahasa</option>
-          </select>
-          <input placeholder="Cari kursus..." />
-          <button>Filter</button>
+
+          <div className={styles.filterGroup}>
+            <span>Tingkat</span>
+            <div className={styles.levelGroup}>
+              {["Semua", "Pemula", "Menengah"].map((item) => (
+                <button
+                  key={item}
+                  className={`${styles.levelBtn} ${
+                    level === item ? styles.active : ""
+                  }`}
+                  onClick={() => setLevel(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.filterGroup}>
+            <span>Cari</span>
+            <input
+              placeholder="Cari kursus..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+
+          <div className={styles.resultInfo}>
+            {filteredCourses.length} dari {courses.length} kursus
+          </div>
         </aside>
       </section>
 
-      {/* ================= LIST KURSUS ================= */}
+      {/* ================= COURSE GRID ================= */}
       <section className={styles.courseGrid}>
-        <CourseCard
-          bg="bgAndroid"
-          title="Android Development (Kotlin)"
-          rating="4.9 | 342 | Pemula"
-          desc="Membangun aplikasi Android native."
-          price="Gratis"
-        />
+        {filteredCourses.map((course) => (
+          <CourseCard key={course.id} {...course} />
+        ))}
+      </section>
 
-        <CourseCard
-          bg="bgFlutter"
-          title="Flutter Mobile App"
-          rating="4.8 | 410 | Menengah"
-          desc="Satu codebase untuk Android & iOS."
-          price="Rp 150.000"
-        />
-
-        <CourseCard
-          bg="bgReactNative"
-          title="React Native"
-          rating="4.7 | 295 | Menengah"
-          desc="Mobile app dengan JavaScript & React."
-          price="Rp 180.000"
-        />
-
-        <CourseCard
-          bg="bgIos"
-          title="iOS Development (Swift)"
-          rating="4.8 | 210 | Menengah"
-          desc="Bangun aplikasi iOS dengan Swift."
-          price="Rp 170.000"
-        />
-
-        <CourseCard
-          bg="bgFirebase"
-          title="Firebase untuk Mobile App"
-          rating="4.7 | 198 | Menengah"
-          desc="Auth, database, dan hosting mobile."
-          price="Rp 130.000"
-        />
-
-        <CourseCard
-          bg="bgUiMobile"
-          title="UI/UX Mobile Design"
-          rating="4.8 | 260 | Pemula"
-          desc="Desain UI mobile modern."
-          price="Rp 120.000"
-        />
+      {/* ================= CTA ================= */}
+      <section className={styles.cta}>
+        <h2>Siap Jadi Mobile Developer?</h2>
+        <p>
+          Mulai belajar dan bangun aplikasi pertamamu
+          sekarang.
+        </p>
+        <Link href="/contact">
+          <button className={styles.primaryBtn}>
+            Hubungi Admin →
+          </button>
+        </Link>
       </section>
 
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>
-        <div className={styles.footerBrand}>EduCourse</div>
-        <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
+        © 2024 EduCourse UNUHA
       </footer>
     </>
   );
 }
 
 /* ================= CARD ================= */
-function CourseCard({ bg, title, rating, desc, price }) {
+function CourseCard({ bg, title, level, desc, price }) {
   return (
-    <div className={`${styles.card} ${styles[bg]}`}>
+    <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
       <div className={styles.cardImage}></div>
 
       <div className={styles.cardBody}>
+        <span className={styles.levelBadge}>{level}</span>
         <h4>{title}</h4>
-        <span className={styles.rating}>⭐ {rating}</span>
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-          <button>Daftar Kursus</button>
+        <Link href="/daftar?kursus=Android Development (Kotlin)">
+          <button>Daftar</button>
+        </Link>
+
           <b>{price}</b>
         </div>
       </div>
     </div>
   );
 }
-
