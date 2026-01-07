@@ -8,7 +8,7 @@ export default function FirebaseMobileAppPage() {
   const router = useRouter();
   const kursus = "Firebase untuk Mobile App";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("firebase-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function FirebaseMobileAppPage() {
         "Pembuatan aplikasi mobile dengan Firebase Authentication & Database."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("firebase-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("firebase-tab", tab);

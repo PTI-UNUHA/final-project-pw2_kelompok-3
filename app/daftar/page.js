@@ -1,13 +1,17 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 export default function DaftarPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const kursus = searchParams.get("kursus") || "Kursus";
+  const [kursus, setKursus] = useState("Kursus");
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setKursus(searchParams.get("kursus") || "Kursus");
+  }, []);
 
   const [form, setForm] = useState({
     nama: "",

@@ -1,19 +1,25 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../page.module.css";
 
 export default function VirtualAccountPage() {
-  const params = useSearchParams();
-  const bank = params.get("bank");
-  const total = params.get("total");
+  const [params, setParams] = useState({ bank: "", total: "" });
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setParams({
+      bank: searchParams.get("bank"),
+      total: searchParams.get("total"),
+    });
+  }, []);
 
   const [copied, setCopied] = useState(false);
 
-  const vaCode = `8808${Math.floor(
+  const [vaCode] = useState(() => `8808${Math.floor(
     100000000 + Math.random() * 900000000
-  )}`;
+  )}`);
 
   return (
     <main className={styles.page}>
@@ -22,7 +28,7 @@ export default function VirtualAccountPage() {
           <h1>Virtual Account</h1>
 
           <div className={styles.bankInfo}>
-            <strong>{bank?.toUpperCase()} VA</strong>
+            <strong>{params.bank?.toUpperCase()} VA</strong>
 
             <div className={styles.vaBox}>
               <span>{vaCode}</span>
@@ -38,7 +44,7 @@ export default function VirtualAccountPage() {
             </div>
 
             <h3>
-              Total: Rp {Number(total).toLocaleString("id-ID")}
+              Total: Rp {Number(params.total).toLocaleString("id-ID")}
             </h3>
           </div>
 

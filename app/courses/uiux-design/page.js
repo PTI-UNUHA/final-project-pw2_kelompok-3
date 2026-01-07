@@ -8,7 +8,7 @@ export default function UiUxMobileDesignPage() {
   const router = useRouter();
   const kursus = "UI/UX Mobile Design";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("uiux-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function UiUxMobileDesignPage() {
         "Perancangan UI/UX aplikasi mobile sebagai project akhir."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("uiux-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("uiux-tab", tab);

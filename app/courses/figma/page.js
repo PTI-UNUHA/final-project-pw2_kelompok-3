@@ -8,7 +8,7 @@ export default function FigmaUiDesignPage() {
   const router = useRouter();
   const kursus = "Figma untuk UI Design";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("figma-ui-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function FigmaUiDesignPage() {
         "Presentasi hasil desain UI dan evaluasi berdasarkan prinsip UI/UX."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("figma-ui-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("figma-ui-tab", tab);

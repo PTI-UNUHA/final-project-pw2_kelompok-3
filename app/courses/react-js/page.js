@@ -8,7 +8,7 @@ export default function ReactJsFundamentalPage() {
   const router = useRouter();
   const kursus = "React JS Fundamental";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("react-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function ReactJsFundamentalPage() {
         "Membangun aplikasi React sederhana sebagai project akhir."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("react-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("react-tab", tab);

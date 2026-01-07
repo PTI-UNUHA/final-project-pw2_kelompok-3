@@ -10,7 +10,7 @@ export default function WebDevelopmentPage() {
   const router = useRouter();
   const kursus = "Web Development Dasar";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("webdev-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -63,11 +63,6 @@ export default function WebDevelopmentPage() {
         "Presentasi project, evaluasi hasil pembelajaran, dan umpan balik."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("webdev-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("webdev-tab", tab);

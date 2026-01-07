@@ -1,11 +1,22 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 
 export default function SuksesPage() {
-  const params = useSearchParams();
   const router = useRouter();
+  const [params, setParams] = useState({});
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setParams({
+      nama: searchParams.get("nama"),
+      nim: searchParams.get("nim"),
+      prodi: searchParams.get("prodi"),
+      kursus: searchParams.get("kursus"),
+    });
+  }, []);
 
   return (
     <main className={styles.page}>
@@ -14,13 +25,13 @@ export default function SuksesPage() {
         <h1 className={styles.title}>Pendaftaran Berhasil</h1>
 
         <p className={styles.text}>
-          <b>{params.get("nama")}</b><br />
-          NIM: {params.get("nim")}<br />
-          Prodi: {params.get("prodi")}
+          <b>{params.nama}</b><br />
+          NIM: {params.nim}<br />
+          Prodi: {params.prodi}
         </p>
 
         <p className={styles.kursus}>
-          Kursus: <b>{params.get("kursus")}</b>
+          Kursus: <b>{params.kursus}</b>
         </p>
 
         <button className={styles.primaryBtn} onClick={() => router.push("/")}>

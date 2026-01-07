@@ -8,7 +8,7 @@ export default function FlutterMobileAppPage() {
   const router = useRouter();
   const kursus = "Flutter Mobile App";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("flutter-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function FlutterMobileAppPage() {
         "Presentasi aplikasi, evaluasi hasil pembelajaran, dan perbaikan project."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("flutter-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("flutter-tab", tab);

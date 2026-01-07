@@ -8,7 +8,7 @@ export default function AndroidKotlinPage() {
   const router = useRouter();
   const kursus = "Android Development (Kotlin)";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("android-kotlin-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function AndroidKotlinPage() {
         "Presentasi aplikasi, evaluasi hasil pembelajaran, dan perbaikan aplikasi."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("android-kotlin-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("android-kotlin-tab", tab);

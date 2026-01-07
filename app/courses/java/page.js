@@ -8,7 +8,7 @@ export default function JavaScriptDasarPage() {
   const router = useRouter();
   const kursus = "JavaScript Dasar";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("jsdasar-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function JavaScriptDasarPage() {
         "Pembuatan aplikasi JavaScript sederhana sebagai project akhir."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("jsdasar-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("jsdasar-tab", tab);

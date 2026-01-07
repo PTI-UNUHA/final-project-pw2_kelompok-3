@@ -8,7 +8,7 @@ export default function UxResearchWireframingPage() {
   const router = useRouter();
   const kursus = "UX Research & Wireframing";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("ux-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function UxResearchWireframingPage() {
         "Presentasi hasil wireframe dan evaluasi proses UX research."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("ux-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("ux-tab", tab);

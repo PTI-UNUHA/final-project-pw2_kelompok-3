@@ -1,12 +1,13 @@
 import "./globals.css";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 export const metadata = {
   title: "EduCourse UNUHA",
   description: "Platform Katalog Kursus Online Mahasiswa Universitas Nurul Huda",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="id">
       <body>

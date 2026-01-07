@@ -8,7 +8,7 @@ export default function ReactNativePage() {
   const router = useRouter();
   const kursus = "React Native";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("react-native-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function ReactNativePage() {
         "Presentasi aplikasi, evaluasi hasil pembelajaran, dan perbaikan project."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("react-native-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("react-native-tab", tab);

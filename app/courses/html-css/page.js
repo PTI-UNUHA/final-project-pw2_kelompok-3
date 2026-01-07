@@ -8,7 +8,7 @@ export default function HtmlCssFundamentalPage() {
   const router = useRouter();
   const kursus = "HTML & CSS Fundamental";
 
-  const [tab, setTab] = useState("overview");
+  const [tab, setTab] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("htmlcss-tab") || "overview" : "overview"));
   const [openWeek, setOpenWeek] = useState(null);
 
   const silabus = [
@@ -61,11 +61,6 @@ export default function HtmlCssFundamentalPage() {
         "Review kode, perbaikan struktur & tampilan, serta presentasi hasil project."
     }
   ];
-
-  useEffect(() => {
-    const savedTab = localStorage.getItem("htmlcss-tab");
-    if (savedTab) setTab(savedTab);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("htmlcss-tab", tab);
