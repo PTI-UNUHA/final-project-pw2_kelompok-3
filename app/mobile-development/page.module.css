@@ -154,10 +154,10 @@
 }
 
 .cardImage {
+  position: relative;
   height: 160px;
   border-radius: 16px;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
 }
 
 .cardBody h4 {
@@ -190,41 +190,7 @@
   transform: translateY(-2px);
 }
 
-/* ================= MOBILE DEV IMAGES (FIX) ================= */
-
-.bgAndroid {}
-.bgFlutter {}
-.bgReactNative {}
-.bgIos {}
-.bgFirebase {}
-.bgUiMobile {}
-
-.bgAndroid .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=800&q=80");
-}
-
-.bgFlutter .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.bgReactNative .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80");
-}
-
-.bgIos .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80");
-}
-
-.bgFirebase .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=800&q=80");
-}
-
-.bgUiMobile .cardImage {
-  background-image: url("https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=800&q=80");
-}
+/* ================= MOBILE DEV IMAGES (REMOVED - NOW USING NEXT/IMAGE) ================= */
 
 
 /* ================= CTA ================= */
