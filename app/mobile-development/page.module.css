@@ -2,6 +2,7 @@
 .hero {
   position: relative;
   height: 420px;
+  background: url("/unuha.jpg") center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -147,17 +148,32 @@
   cursor: pointer;
   transition: transform .3s ease, box-shadow .3s ease;
 }
-
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 70px rgba(15,61,46,.2);
 }
-
 .cardImage {
-  position: relative;
   height: 160px;
   border-radius: 16px;
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* IMAGE BACKGROUNDS */
+.bgAndroid .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=400&q=80");
+}
+.bgFlutter .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80");
+}
+.bgReactNative .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80");
+}
+.bgFirebase .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=400&q=80");
+}
+.bgMobileDesign .cardImage {
+  background-image: url("https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=400&q=80");
 }
 
 .cardBody h4 {
@@ -166,8 +182,8 @@
 
 .levelBadge {
   font-size: 12px;
-  font-weight: 600;
   color: #0f3d2e;
+  font-weight: 600;
 }
 
 .cardFooter {
@@ -178,6 +194,11 @@
 
 .cardFooter button {
   background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+}
   color: white;
   border: none;
   padding: 8px 18px;

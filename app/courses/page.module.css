@@ -34,6 +34,18 @@
     url("/unuha.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
+  animation: heroParallax 1.2s ease-out;
+}
+
+@keyframes heroParallax {
+  from { 
+    background-position: center 20px; 
+    opacity: 0; 
+  }
+  to { 
+    background-position: center; 
+    opacity: 1; 
+  }
 }
 
 .heroText {

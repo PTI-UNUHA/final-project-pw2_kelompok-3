@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "./page.module.css";
 
-/* ================= DATA KURSUS ================= */
+/* ================= DATA ================= */
 const courses = [
   {
     id: 1,
@@ -15,7 +14,7 @@ const courses = [
     level: "Pemula",
     desc: "Membangun aplikasi Android native menggunakan Kotlin.",
     price: "Gratis",
-    image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=400&q=80",
+    bg: "bgAndroid",
   },
   {
     id: 2,
@@ -24,7 +23,7 @@ const courses = [
     level: "Menengah",
     desc: "Satu codebase untuk Android dan iOS.",
     price: "Rp 150.000",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80",
+    bg: "bgFlutter",
   },
   {
     id: 3,
@@ -33,7 +32,7 @@ const courses = [
     level: "Menengah",
     desc: "Mobile app dengan JavaScript dan React.",
     price: "Rp 180.000",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80",
+    bg: "bgReactNative",
   },
   {
     id: 4,
@@ -42,23 +41,16 @@ const courses = [
     level: "Menengah",
     desc: "Backend-as-a-Service untuk aplikasi mobile.",
     price: "Rp 100.000",
-    image: "https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=400&q=80",
+    bg: "bgFirebase",
   },
   {
     id: 5,
-    title: "Firebase untuk Mobile App",
-    level: "Menengah",
-    desc: "Auth, database, dan backend mobile.",
-    price: "Rp 130.000",
-    image: "https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 6,
     title: "UI/UX Mobile Design",
+    slug: "ui-ux-mobile-design",
     level: "Pemula",
     desc: "Desain UI mobile modern & usable.",
     price: "Rp 120.000",
-    image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?auto=format&fit=crop&w=400&q=80",
+    bg: "bgMobileDesign",
   },
 ];
 
@@ -81,13 +73,6 @@ export default function MobileDevelopmentPage() {
     <>
       {/* ================= HERO ================= */}
       <section className={styles.hero}>
-        <Image
-          src="/unuha.jpg"
-          alt="Mobile Development"
-          fill
-          priority
-          className={styles.heroImg}
-        />
         <div className={styles.overlay} />
 
         <button
@@ -103,8 +88,8 @@ export default function MobileDevelopmentPage() {
           </span>
           <h1>Mobile Development</h1>
           <p>
-            Jalur pembelajaran untuk membangun aplikasi
-            Android dan iOS secara profesional.
+            Jalur pembelajaran terstruktur untuk membangun
+            aplikasi Android dan iOS secara profesional.
           </p>
         </div>
       </section>
@@ -193,17 +178,10 @@ export default function MobileDevelopmentPage() {
 }
 
 /* ================= CARD ================= */
-function CourseCard({ image, title, level, desc, price, slug }) {
+function CourseCard({ bg, title, level, desc, price, slug }) {
   return (
-    <div className={styles.card}>
-      <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(max-width: 768px) 100vw, 33vw"
-        className={styles.cardImage}
-      />
-
+    <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
+      <div className={styles.cardImage} />
       <div className={styles.cardBody}>
         <span className={styles.levelBadge}>{level}</span>
         <h4>{title}</h4>
