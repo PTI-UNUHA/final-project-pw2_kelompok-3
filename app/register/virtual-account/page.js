@@ -52,7 +52,7 @@ function VirtualAccountContent() {
       ],
       links: {
         web: "https://ib.bri.co.id/",
-        android: "intent://#Intent;scheme=bri;package=com.linkaja.bri;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.linkaja.bri;end",
+        android: "https://play.google.com/store/apps/details?id=com.linkaja.bri",
         ios: "https://apps.apple.com/id/app/bri-mobile/id1146836150"
       }
     },
