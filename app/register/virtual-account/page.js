@@ -51,11 +51,23 @@ export default function VirtualAccountPage() {
           </div>
 
           <ol className={styles.instruction}>
-            <li>Buka mobile banking</li>
-            <li>Pilih Virtual Account</li>
-            <li>Masukkan kode di atas</li>
+            <li>Buka mobile banking atau internet banking BRI</li>
+            <li>Pilih menu Virtual Account</li>
+            <li>Masukkan kode VA di atas</li>
             <li>Konfirmasi pembayaran</li>
           </ol>
+
+          <div className={styles.linkGroup}>
+            <a href="https://ib.bri.co.id/" target="_blank" rel="noopener noreferrer" className={styles.bankLink}>
+              🌐 Buka BRI Internet Banking
+            </a>
+            <a href="intent://#Intent;scheme=bri;package=com.linkaja.bri;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.linkaja.bri;end" className={styles.bankLink}>
+              📱 Buka BRI Mobile (Android)
+            </a>
+            <a href="https://apps.apple.com/id/app/bri-mobile/id1146836150" target="_blank" rel="noopener noreferrer" className={styles.bankLink}>
+              🍎 Buka BRI Mobile (iOS)
+            </a>
+          </div>
 
           <p className={styles.waiting}>
             ⏳ Menunggu pembayaran…

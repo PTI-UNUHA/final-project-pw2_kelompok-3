@@ -60,6 +60,10 @@
 .instruction{margin-top:12px}
 .waiting{margin-top:16px;font-weight:700;color:#a86b00}
 
+.linkGroup{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.bankLink{display:inline-block;padding:10px 16px;background:#1f5e45;color:#fff;text-decoration:none;border-radius:12px;text-align:center;font-weight:600}
+.bankLink:hover{background:#145c43}
+
 @media(max-width:640px){
   .bankGrid,.walletGrid{grid-template-columns:1fr}
 }
