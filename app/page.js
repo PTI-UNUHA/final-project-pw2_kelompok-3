@@ -151,8 +151,8 @@ export default function LandingPage() {
     {/* QUICK LINKS */}
     <div className={styles.footerCol}>
       <h4>Quick Links</h4>
-      <Link href="/about"><a>About Us</a></Link>
-      <Link href="/courses"><a>Courses</a></Link>
+      <Link href="/about">About Us</Link>
+      <Link href="/courses">Courses</Link>
       <a>Career</a>
       <a>FAQs</a>
     </div>
