@@ -198,11 +198,6 @@
   border: none;
   padding: 8px 18px;
   border-radius: 10px;
-}
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 10px;
   cursor: pointer;
   transition: .25s ease;
 }
@@ -211,13 +206,28 @@
   transform: translateY(-2px);
 }
 
-/* ================= MOBILE DEV IMAGES (REMOVED - NOW USING NEXT/IMAGE) ================= */
-
-
 /* ================= CTA ================= */
 .cta {
   padding: 90px 24px;
   text-align: center;
+}
+
+.primaryBtn {
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #0f3d2e;
+  color: white;
+  text-align: center;
+  padding: 36px;
+}
 }
 
 .primaryBtn {

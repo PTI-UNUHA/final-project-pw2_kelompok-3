@@ -169,6 +169,21 @@ export default function MobileDevelopmentPage() {
         </Link>
       </section>
 
+      {/* ================= CTA ================= */}
+      <section className={styles.cta}>
+        <h2>Siap Jadi Mobile Developer?</h2>
+        <p>
+          Mulai belajar dan bangun aplikasi pertamamu
+          sekarang juga.
+        </p>
+
+        <Link href="/contact">
+          <button className={styles.primaryBtn}>
+            Hubungi Admin →
+          </button>
+        </Link>
+      </section>
+
       {/* ================= FOOTER ================= */}
       <footer className={styles.footer}>
         © 2024 EduCourse UNUHA
