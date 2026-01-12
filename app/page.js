@@ -76,7 +76,16 @@ export default function LandingPage() {
              <Link href="/web-development">
               <button>Lihat Kursus →</button>
             </Link>
-
+            <button 
+              className={styles.shareBtn}
+              onClick={() => navigator.share?.({
+                title: 'Web Development Kursus',
+                text: 'Pelajari mekanisme pembuatan website dengan HTML, CSS, dan JavaScript',
+                url: window.location.origin + '/web-development'
+              }) || alert('Share feature not supported')}
+            >
+              📤 Share
+            </button>
             </div>
           </div>
 
@@ -90,7 +99,16 @@ export default function LandingPage() {
             <Link href="/mobile-development">
               <button>Lihat Kursus →</button>
             </Link>
-
+            <button 
+              className={styles.shareBtn}
+              onClick={() => navigator.share?.({
+                title: 'Mobile Development Kursus',
+                text: 'Pelajari desain dan pengembangan aplikasi mobile yang interaktif dan responsif',
+                url: window.location.origin + '/mobile-development'
+              }) || alert('Share feature not supported')}
+            >
+              📤 Share
+            </button>
 
             </div>
           </div>
@@ -105,6 +123,16 @@ export default function LandingPage() {
              <Link href="/uiux-design">
               <button>Lihat Kursus →</button>
             </Link>
+            <button 
+              className={styles.shareBtn}
+              onClick={() => navigator.share?.({
+                title: 'UI/UX Design Kursus',
+                text: 'Pelajari dasar desain antarmuka, prototipe, dan pengalaman pengguna',
+                url: window.location.origin + '/uiux-design'
+              }) || alert('Share feature not supported')}
+            >
+              📤 Share
+            </button>
 
             </div>
           </div>
@@ -169,10 +197,18 @@ export default function LandingPage() {
     {/* CONNECT (CSS ICON) */}
     <div className={styles.footerCol}>
       <h4>Connect With Us</h4>
-      <Link href="https://youtube.com"><div className={`${styles.socialCard} ${styles.youtube}`}>Youtube</div></Link>
-      <Link href="https://instagram.com"><div className={`${styles.socialCard} ${styles.instagram}`}>Instagram</div></Link>
-      <Link href="https://facebook.com"><div className={`${styles.socialCard} ${styles.facebook}`}>Facebook</div></Link>
-      <Link href="https://linkedin.com"><div className={`${styles.socialCard} ${styles.linkedin}`}>LinkedIn</div></Link>
+      <Link href="https://youtube.com/@educourse_unuha" target="_blank" rel="noopener noreferrer">
+        <div className={`${styles.socialCard} ${styles.youtube}`}>YouTube</div>
+      </Link>
+      <Link href="https://instagram.com/educourse_unuha" target="_blank" rel="noopener noreferrer">
+        <div className={`${styles.socialCard} ${styles.instagram}`}>Instagram</div>
+      </Link>
+      <Link href="https://facebook.com/educourse.unuha" target="_blank" rel="noopener noreferrer">
+        <div className={`${styles.socialCard} ${styles.facebook}`}>Facebook</div>
+      </Link>
+      <Link href="https://linkedin.com/company/educourse-unuha" target="_blank" rel="noopener noreferrer">
+        <div className={`${styles.socialCard} ${styles.linkedin}`}>LinkedIn</div>
+      </Link>
     </div>
 
   </div>
