@@ -61,7 +61,7 @@ export default function LandingPage() {
         <div className={styles.categoryHead}>
           <div className={styles.titleBlock}>
             <h2>Kategori Kursus</h2>
-            <p>Temukan bidang yang sesuai minatmu</p>
+            <p>Temukan bidang yang sesuai minatmu!</p>
           </div>
 
         </div>

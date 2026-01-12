@@ -32,11 +32,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="pageContent">
           {children}
         </main>
-
-        {/* FOOTER */}
-        <footer className="footer">
-          © 2024 EduCourse UNUHA
-        </footer>
       </body>
     </html>
   );
