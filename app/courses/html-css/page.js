@@ -212,7 +212,7 @@ export default function HtmlCssFundamentalPage() {
       <div className={styles.stickyCTA}>
         <button
           onClick={() =>
-            router.push(`/daftar?kursus=${encodeURIComponent(kursus)}`)
+            router.push("/register")
           }
         >
           Daftar Kursus Sekarang

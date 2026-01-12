@@ -11,6 +11,7 @@ const courses = [
   {
     id: 1,
     title: "HTML & CSS Fundamental",
+    slug: "html-css-dasar",
     level: "Pemula",
     desc: "Membangun struktur dan tampilan website modern.",
     price: "Gratis",
@@ -19,6 +20,7 @@ const courses = [
   {
     id: 2,
     title: "JavaScript Dasar",
+    slug: "javascript-dasar",
     level: "Pemula",
     desc: "Logika pemrograman & interaksi website.",
     price: "Rp 120.000",
@@ -27,6 +29,7 @@ const courses = [
   {
     id: 3,
     title: "Bootstrap Framework",
+    slug: "bootstrap-framework",
     level: "Menengah",
     desc: "Membuat layout responsif dengan cepat.",
     price: "Rp 150.000",
@@ -35,6 +38,7 @@ const courses = [
   {
     id: 4,
     title: "React JS Fundamental",
+    slug: "react-js-fundamental",
     level: "Menengah",
     desc: "Frontend modern berbasis komponen.",
     price: "Rp 200.000",
@@ -165,7 +169,7 @@ export default function WebDevelopmentPage() {
 }
 
 /* ================= CARD ================= */
-function CourseCard({ bg, title, level, desc, price }) {
+function CourseCard({ bg, title, level, desc, price, slug }) {
   return (
     <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
       <div className={styles.cardImage} />
@@ -175,8 +179,8 @@ function CourseCard({ bg, title, level, desc, price }) {
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-        <Link href="/daftar?kursus=HTML & CSS Fundamental">
-          <button>Daftar</button>
+        <Link href={`/jelajahi-kursus/${slug}`}>
+          <button>Lihat Detail</button>
         </Link>
 
           <b>{price}</b>

@@ -1,10 +1,36 @@
+/* ================= BUTTON SYSTEM ================= */
+.btn,
+.btnPrimary,
+.btnSecondary {
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover,
+.btnPrimary:hover,
+.btnSecondary:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active,
+.btnPrimary:active,
+.btnSecondary:active {
+  transform: scale(0.96);
+}
+
+.btn:focus-visible,
+.btnPrimary:focus-visible,
+.btnSecondary:focus-visible {
+  outline: 3px solid rgba(15,61,46,.4);
+  outline-offset: 3px;
+}
+
+/* ================= HERO ================= */
 .hero {
   position: relative;
   height: 420px;
-  background: linear-gradient(
-      rgba(0,0,0,.65),
-      rgba(0,0,0,.45)
-    ),
+  background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.45)),
     url("/unuha.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -18,14 +44,12 @@
 
 .heroText h1 {
   font-size: 44px;
-  margin: 10px 0;
 }
 
 .badgeHero {
   background: rgba(255,255,255,.2);
   padding: 6px 14px;
   border-radius: 999px;
-  font-size: 13px;
 }
 
 .backBtn {
@@ -37,27 +61,20 @@
   border: none;
   padding: 10px 18px;
   border-radius: 999px;
-  cursor: pointer;
 }
 
-.section {
+/* ================= SECTION ================= */
+.section,
+.sectionAlt {
   padding: 48px 64px;
 }
 
 .sectionAlt {
-  padding: 80px;
   background: #f9fbfa;
-  padding: 48px 64px;
-}
-
-.section h2,
-.sectionAlt h2 {
-  font-size: 8px;
 }
 
 .sectionDesc {
   color: #555;
-  margin-bottom: 24px;
 }
 
 .courseGrid {
@@ -66,12 +83,17 @@
   gap: 20px;
 }
 
-
+/* ================= CARD ================= */
 .card {
   background: white;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  transition: transform .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
 }
 
 .cardImage {
@@ -92,49 +114,25 @@
   border-radius: 999px;
 }
 
-.cardBody h3 {
-  margin: 10px 0;
-}
-
 .desc {
   font-size: 14px;
   color: #555;
-  margin-bottom: 14px;
 }
 
-.cardBody button {
+/* ================= BUTTON VARIANT ================= */
+.btnSecondary {
   background: #0f3d2e;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
-  cursor: pointer;
 }
 
-/* IMAGES */
-.web1 .cardImage { background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085"); }
-.web2 .cardImage { background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d"); }
-.web3 .cardImage { background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475"); }
-.web4 .cardImage { background-image: url("https://images.unsplash.com/photo-1555066931-4365d14bab8c"); }
-
-.mobile1 .cardImage { background-image: url("https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb"); }
-.mobile2 .cardImage { background-image: url("https://images.unsplash.com/photo-1581091012184-5c7dcb8f60b4"); }
-.mobile3 .cardImage { background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c"); }
-.mobile4 .cardImage { background-image: url("https://images.unsplash.com/photo-1556155092-8707de31f9c4"); }
-
-.uiux1 .cardImage { background-image: url("https://images.unsplash.com/photo-1618788372246-79faff0c3742"); }
-.uiux2 .cardImage { background-image: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c"); }
-.uiux3 .cardImage { background-image: url("https://images.unsplash.com/photo-1559028012-481c04fa702d"); }
-.uiux4 .cardImage { background-image: url("https://images.unsplash.com/photo-1587440871875-191322ee64b0"); }
-
-.cta {
-  text-align: center;
-  padding: 60px 24px;
-  background: #0f3d2e;
-  color: white;
+.btnSecondary:hover {
+  background: #145c45;
 }
 
-.cta button {
+.btnPrimary {
   margin-top: 20px;
   padding: 14px 36px;
   border-radius: 999px;
@@ -144,6 +142,30 @@
   font-weight: 600;
 }
 
+/* ================= IMAGES ================= */
+.web1 .cardImage { background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085"); }
+.web2 .cardImage { background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d"); }
+.web3 .cardImage { background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475"); }
+.web4 .cardImage { background-image: url("https://images.unsplash.com/photo-1555066931-4365d14bab8c"); }
+
+.mobile1 .cardImage { background-image: url("https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb"); }
+.mobile2 .cardImage { background-image: url("https://images.unsplash.com/photo-1617042375876-a13e36732a04"); }
+.mobile3 .cardImage { background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c"); }
+.mobile4 .cardImage { background-image: url("https://images.unsplash.com/photo-1556155092-8707de31f9c4"); }
+
+.uiux1 .cardImage { background-image: url("https://images.unsplash.com/photo-1618788372246-79faff0c3742"); }
+.uiux2 .cardImage { background-image: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c"); }
+.uiux3 .cardImage { background-image: url("https://images.unsplash.com/photo-1559028012-481c04fa702d"); }
+.uiux4 .cardImage { background-image: url("https://images.unsplash.com/photo-1587440871875-191322ee64b0"); }
+
+/* ================= CTA & FOOTER ================= */
+.cta {
+  text-align: center;
+  padding: 60px 24px;
+  background: #0f3d2e;
+  color: white;
+}
+
 .footer {
   background: #0f3d2e;
   color: white;
@@ -151,11 +173,32 @@
   padding: 40px;
 }
 
-@media (max-width: 900px) {
+/* ================= HP FRIENDLY ================= */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 100px 16px 60px;
+  }
+
+  .heroText {
+    margin-left: 0;
+  }
+
+  .heroText h1 {
+    font-size: 28px;
+  }
+
+  .section,
+  .sectionAlt {
+    padding: 32px 16px;
+  }
+
   .courseGrid {
     grid-template-columns: 1fr;
   }
-  .heroText {
-    margin-left: 24px;
+
+  .btnSecondary,
+  .btnPrimary {
+    width: 100%;
   }
 }

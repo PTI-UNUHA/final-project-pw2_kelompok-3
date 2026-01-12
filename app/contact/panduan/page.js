@@ -5,15 +5,14 @@ import styles from "./page.module.css";
 export default function ContactPanduanPage() {
   return (
     <>
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className={styles.hero}>
-        <div className={styles.overlay}></div>
         <div className={styles.heroContent}>
           <span className={styles.badge}>EduCourse UNUHA</span>
           <h1>Panduan Bantuan EduCourse</h1>
           <p>
-            Panduan singkat untuk mahasiswa yang membutuhkan
-            bantuan seputar penggunaan platform EduCourse.
+            Panduan singkat untuk membantu mahasiswa memahami
+            alur dan penggunaan platform EduCourse secara efektif.
           </p>
 
           <div className={styles.breadcrumb}>
@@ -24,98 +23,78 @@ export default function ContactPanduanPage() {
         </div>
       </section>
 
-      {/* ================= PANDUAN UTAMA ================= */}
+      {/* GUIDE */}
       <section className={styles.section}>
         <div className={styles.container}>
           <h2>Bagaimana Kami Membantu?</h2>
           <p className={styles.desc}>
-            Berikut panduan umum yang sering dibutuhkan mahasiswa
-            saat menggunakan EduCourse.
+            Ikuti langkah-langkah berikut untuk menggunakan EduCourse
+            dengan optimal.
           </p>
 
           <div className={styles.guideGrid}>
-            <div className={styles.guideCard}>
+            <Link href="/courses" className={styles.guideCard}>
               <h3>📚 Mengakses Kursus</h3>
-              <p>
-                Buka menu Kursus untuk melihat seluruh daftar
-                pembelajaran yang tersedia.
-              </p>
-            </div>
+              <p>Lihat semua kursus yang tersedia di EduCourse.</p>
+              <span>Lihat Kursus →</span>
+            </Link>
 
-            <div className={styles.guideCard}>
+            <Link href="/courses" className={styles.guideCard}>
               <h3>🔍 Memilih Kursus</h3>
-              <p>
-                Pilih kursus sesuai bidang dan tingkat
-                kemampuan yang diinginkan.
-              </p>
-            </div>
+              <p>Pilih kursus sesuai minat dan kebutuhan skill.</p>
+              <span>Pilih Kursus →</span>
+            </Link>
 
-            <div className={styles.guideCard}>
+            <Link href="/courses" className={styles.guideCard}>
               <h3>📄 Melihat Detail</h3>
-              <p>
-                Baca deskripsi, tujuan, dan alur
-                pembelajaran kursus.
-              </p>
-            </div>
+              <p>Pelajari deskripsi, tujuan, dan materi kursus.</p>
+              <span>Lihat Detail →</span>
+            </Link>
 
-            <div className={styles.guideCard}>
+            <Link href="/register" className={styles.guideCard}>
               <h3>🛠 Mengikuti Pembelajaran</h3>
-              <p>
-                Ikuti materi secara berurutan
-                dan fokus pada praktik.
-              </p>
-            </div>
+              <p>Ikuti alur belajar dan praktik untuk meningkatkan skill.</p>
+              <span>Mulai Belajar →</span>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ================= FAQ RINGKAS ================= */}
+      {/* FAQ */}
       <section className={styles.lightSection}>
         <h2>Pertanyaan yang Sering Ditanyakan</h2>
 
         <div className={styles.faqGrid}>
           <div className={styles.faqItem}>
             <h4>Apakah EduCourse berbayar?</h4>
-            <p>
-              Tidak. EduCourse disediakan gratis
-              untuk mahasiswa Universitas Nurul Huda.
-            </p>
+            <p>EduCourse gratis untuk mahasiswa Universitas Nurul Huda.</p>
           </div>
 
           <div className={styles.faqItem}>
-            <h4>Apakah wajib mengikuti semua kursus?</h4>
-            <p>
-              Tidak wajib. Mahasiswa bebas memilih
-              kursus sesuai kebutuhan.
-            </p>
+            <h4>Apakah harus mengikuti semua kursus?</h4>
+            <p>Tidak. Mahasiswa bebas memilih kursus sesuai kebutuhan.</p>
           </div>
 
           <div className={styles.faqItem}>
-            <h4>Jika masih bingung harus ke mana?</h4>
-            <p>
-              Silakan kembali ke halaman Contact
-              untuk melihat informasi bantuan.
-            </p>
+            <h4>Masih bingung?</h4>
+            <p>Kembali ke halaman Contact untuk bantuan lebih lanjut.</p>
           </div>
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
+      {/* CTA */}
       <section className={styles.ctaSection}>
         <h2>Masih Butuh Bantuan?</h2>
-        <p>
-          Kembali ke halaman Contact untuk melihat
-          informasi resmi EduCourse.
-        </p>
+        <p>Hubungi pusat informasi EduCourse UNUHA.</p>
 
         <Link href="/contact" className={styles.ctaBtn}>
-          Kembali ke Contact →
+          Kembali ke Contact
         </Link>
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* FOOTER */}
       <footer className={styles.footer}>
-        <p>© 2024 EduCourse UNUHA. All rights reserved.</p>
+        © 2024 EduCourse UNUHA. All rights reserved.
       </footer>
     </>
   );

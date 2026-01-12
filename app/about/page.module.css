@@ -1,20 +1,74 @@
+/* ===== BUTTON SYSTEM ===== */
+.btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(15,61,46,.4);
+  outline-offset: 3px;
+}
+
+/* VARIANT */
+.btnPrimary {
+  background: #0f3d2e;
+  color: white;
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.btnSecondary {
+  margin-top: 16px;
+  width: 100%;
+  background: #0f3d2e;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.btnGhost {
+  background: rgba(255,255,255,.15);
+  color: white;
+  padding: 14px 34px;
+  border-radius: 999px;
+}
+
 /* ===== HERO ===== */
 .hero {
-  position: relative;
-  height: 340px;
-  background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1522071820081-009f0129c71c");
-  background-size: cover;
-  background-position: center;
+  min-height: 70vh;
+  background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1522071820081-009f0129c71c") center/cover;
   display: flex;
   align-items: center;
 }
 
 .heroContent {
   margin-left: 80px;
-  max-width: 560px;
+  max-width: 620px;
   color: white;
+}
+
+.heroContent span {
+  color: #7ee3c2;
+}
+
+.heroActions {
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .badge {
@@ -23,12 +77,11 @@
   padding: 6px 16px;
   background: rgba(255,255,255,.2);
   border-radius: 999px;
-  font-size: 13px;
 }
 
-/* ===== GLOBAL SECTION ===== */
+/* ===== SECTION ===== */
 .section {
-  padding: 90px 24px;
+  padding: 100px 24px;
   text-align: center;
 }
 
@@ -38,7 +91,6 @@
 }
 
 .subtitle {
-  margin-top: 10px;
   opacity: .7;
 }
 
@@ -46,95 +98,60 @@
 .aboutGrid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 40px;
+  gap: 48px;
   text-align: left;
 }
 
 .aboutBox {
   background: #f5f7f6;
-  padding: 24px;
-  border-radius: 16px;
+  padding: 28px;
+  border-radius: 18px;
 }
 
-/* ===== LIGHT SECTION ===== */
+/* ===== LIGHT ===== */
 .lightSection {
   background: #f9fbfa;
-  padding: 80px 24px;
-  text-align: center;
+  padding: 90px 24px;
 }
 
 /* ===== FEATURE ===== */
 .featureGrid {
-  margin-top: 40px;
+  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
 .featureCard {
   background: white;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.1);
-}
-
-/* ===== STATS ===== */
-.stats {
-  background: #0f3d2e;
-  color: white;
-  padding: 70px 24px;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  text-align: center;
-}
-
-.stats h3 {
-  font-size: 34px;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.1);
+  text-align: left;
 }
 
 /* ===== FLOW ===== */
 .flow {
-  margin-top: 36px;
+  margin-top: 40px;
   display: flex;
-  justify-content: center;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.flow div {
-  padding: 14px 22px;
+.flowStep {
   background: #0f3d2e;
   color: white;
+  padding: 14px 26px;
   border-radius: 999px;
 }
 
-/* ===== TARGET ===== */
-.targetGrid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 24px;
-}
-
-.targetCard {
-  background: white;
-  padding: 26px;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.1);
-}
-
-/* ===== DARK ===== */
-.darkSection {
+/* ===== CTA ===== */
+.cta {
   background: #0f3d2e;
   color: white;
-  padding: 90px 24px;
-}
-
-.visionGrid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  padding: 100px 24px;
+  text-align: center;
 }
 
 /* ===== FOOTER ===== */
@@ -142,7 +159,7 @@
   background: #092b20;
   color: white;
   text-align: center;
-  padding: 26px;
+  padding: 28px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -151,14 +168,39 @@
     margin-left: 24px;
   }
 
-  .aboutGrid,
-  .visionGrid,
-  .targetGrid {
+  .aboutGrid {
     grid-template-columns: 1fr;
   }
 
-  .stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+  .heroActions {
+    flex-direction: column;
   }
+
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+  }
+}
+
+/* ===== CTA BUTTON FIX ===== */
+.cta .btnPrimary {
+  margin-top: 24px;
+  background: #ffffff;
+  color: #0f3d2e;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 36px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* HOVER (DESKTOP) */
+.cta .btnPrimary:hover {
+  background: #e6f4ef;
+  transform: translateY(-3px);
+}
+
+/* ACTIVE (HP / TAP) */
+.cta .btnPrimary:active {
+  transform: scale(0.95);
 }

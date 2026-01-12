@@ -1,39 +1,275 @@
-:root{--green:#0f3d2e;--dark:#092b20}
-.hero{position:relative;height:360px;background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.55)),
-url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
-background-size:cover;background-position:center;display:flex;align-items:center}
-.overlay{position:absolute;inset:0}
-.heroContent{position:relative;margin-left:80px;max-width:620px;color:#fff}
-.badge{display:inline-block;margin-bottom:14px;padding:6px 16px;background:rgba(255,255,255,.2);border-radius:999px;font-size:13px}
-.heroActions{margin-top:18px;display:flex;gap:12px}
-.primaryBtn,.ghostBtn{padding:12px 20px;border-radius:999px;font-weight:600}
-.primaryBtn{background:#fff;color:#000}
-.ghostBtn{border:2px solid #fff;color:#fff}
+:root {
+  --green: #0f3d2e;
+  --dark: #092b20;
+}
 
-.announce{background:#f0f6f4}
-.announceInner{max-width:1100px;margin:auto;padding:14px 24px;display:flex;gap:8px;align-items:center}
+/* ===== HERO ===== */
+.hero {
+  min-height: 70vh;
+  background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") center/cover;
+  display: flex;
+  align-items: center;
+}
 
-.section{padding:80px 24px;text-align:center}
-.lightSection{background:#f9fbfa;padding:80px 24px;text-align:center}
+.heroContent {
+  margin-left: 80px;
+  max-width: 640px;
+  color: white;
+}
 
-.actionGrid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.actionCard{background:#fff;padding:28px;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.1)}
-.actionCard a{display:inline-block;margin-top:12px;font-weight:600;color:var(--green)}
+.badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  background: rgba(255,255,255,.2);
+  border-radius: 999px;
+  font-size: 13px;
+}
 
-.statusGrid{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.statusCard{background:#fff;padding:16px;border-radius:14px;display:flex;gap:10px;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.08)}
-.dotOk,.dotInfo{width:10px;height:10px;border-radius:50%}
-.dotOk{background:#22c55e}.dotInfo{background:#38bdf8}
+.heroActions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-.infoGrid{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.infoCard{background:#fff;padding:26px;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.btnPrimary {
+  background: white;
+  color: var(--green);
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-weight: 600;
+}
 
-.mapBox{max-width:1000px;margin:32px auto}
-.mapBox iframe{width:100%;height:360px;border:none;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.btnGhost {
+  border: 2px solid white;
+  color: white;
+  padding: 14px 34px;
+  border-radius: 999px;
+}
 
-.footer{background:var(--dark);color:#fff;text-align:center;padding:26px}
-@media(max-width:900px){
-.heroContent{margin-left:24px}
-.actionGrid,.infoGrid,.statusGrid{grid-template-columns:1fr}
+/* ===== ANNOUNCE ===== */
+.announce {
+  background: #f0f6f4;
+}
+
+.announceInner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.lightSection {
+  background: #f9fbfa;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: 8px;
+  opacity: .7;
+}
+
+/* ===== ACTION ===== */
+.actionGrid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.actionCard {
+  background: white;
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.1);
+  text-align: left;
+  transition: .3s;
+}
+
+.actionCard:hover {
+  transform: translateY(-10px);
+}
+
+.actionCard span {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* ===== STATUS ===== */
+.statusGrid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.statusCard {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.dotOk,
+.dotInfo {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotOk { background: #22c55e; }
+.dotInfo { background: #38bdf8; }
+
+/* ===== INFO ===== */
+.infoGrid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 28px;
+}
+
+.infoCard {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(0,0,0,.1);
+}
+
+/* ===== MAP ===== */
+.mapBox {
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.mapBox iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 28px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .heroContent {
+    margin-left: 24px;
+  }
+
+  .actionGrid,
+  .infoGrid,
+  .statusGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ================= BUTTON INTERACTION (FINAL) ================= */
+
+/* SEMUA BUTTON & LINK BUTTON */
+.btnPrimary,
+.btnGhost,
+.actionCard,
+.actionCard span,
+.announceInner a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* PRIMARY BUTTON */
+.btnPrimary {
+  transition: transform .15s ease, box-shadow .15s ease, background .15s;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.btnPrimary:active {
+  transform: scale(0.96);
+}
+
+/* GHOST BUTTON */
+.btnGhost {
+  transition: transform .15s ease, background .15s, box-shadow .15s;
+}
+
+.btnGhost:hover {
+  background: rgba(255,255,255,.15);
+  transform: translateY(-3px);
+}
+
+.btnGhost:active {
+  transform: scale(0.96);
+}
+
+/* ACTION CARD = BUTTON BESAR */
+.actionCard {
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.actionCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.18);
+}
+
+.actionCard:active {
+  transform: scale(0.97);
+}
+
+/* LINK DI ANNOUNCE */
+.announceInner a {
+  font-weight: 600;
+  color: var(--green);
+  transition: opacity .15s;
+}
+
+.announceInner a:hover {
+  opacity: .7;
+}
+
+/* ================= HP FRIENDLY TOUCH ================= */
+@media (max-width: 768px) {
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 16px;
+  }
+
+  .actionCard {
+    padding: 28px;
+  }
 }

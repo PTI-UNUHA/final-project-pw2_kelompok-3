@@ -193,7 +193,7 @@ export default function WebDevelopmentPage() {
 
       {/* ===== STICKY CTA ===== */}
       <div className={styles.stickyCTA}>
-        <button onClick={() => router.push(`/daftar?kursus=${encodeURIComponent(kursus)}`)}>
+        <button onClick={() => router.push("/register")}>
           Daftar Kursus Sekarang
         </button>
       </div>

@@ -32,12 +32,6 @@ export default function LandingPage() {
             Platform Katalog Kursus Online <br />
             Mahasiswa Universitas Nurul Huda.
           </p>
-        <Link href="/jelajahi-kursus">
-          <button className={styles.primaryBtn}>
-            Jelajahi Kursus →
-          </button>
-        </Link>
-
         </div>
 
         {/* ===== CURVE (FINAL – DIBENERIN) ===== */}

@@ -11,6 +11,7 @@ const courses = [
   {
     id: 1,
     title: "Android Development (Kotlin)",
+    slug: "android-development-kotlin",
     level: "Pemula",
     desc: "Membangun aplikasi Android native menggunakan Kotlin.",
     price: "Gratis",
@@ -19,6 +20,7 @@ const courses = [
   {
     id: 2,
     title: "Flutter Mobile App",
+    slug: "flutter-mobile-app",
     level: "Menengah",
     desc: "Satu codebase untuk Android dan iOS.",
     price: "Rp 150.000",
@@ -27,6 +29,7 @@ const courses = [
   {
     id: 3,
     title: "React Native",
+    slug: "react-native",
     level: "Menengah",
     desc: "Mobile app dengan JavaScript dan React.",
     price: "Rp 180.000",
@@ -34,11 +37,12 @@ const courses = [
   },
   {
     id: 4,
-    title: "iOS Development (Swift)",
+    title: "Firebase untuk Mobile App",
+    slug: "firebase-mobile-app",
     level: "Menengah",
-    desc: "Membangun aplikasi iOS modern dengan Swift.",
-    price: "Rp 170.000",
-    bg: "bgIos",
+    desc: "Backend-as-a-Service untuk aplikasi mobile.",
+    price: "Rp 100.000",
+    bg: "bgFirebase",
   },
   {
     id: 5,
@@ -189,7 +193,7 @@ export default function MobileDevelopmentPage() {
 }
 
 /* ================= CARD ================= */
-function CourseCard({ bg, title, level, desc, price }) {
+function CourseCard({ bg, title, level, desc, price, slug }) {
   return (
     <div className={`${styles.card} ${styles[bg]}`} tabIndex="0">
       <div className={styles.cardImage}></div>
@@ -200,8 +204,8 @@ function CourseCard({ bg, title, level, desc, price }) {
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-        <Link href="/daftar?kursus=Android Development (Kotlin)">
-          <button>Daftar</button>
+        <Link href={`/jelajahi-kursus/${slug}`}>
+          <button>Lihat Detail</button>
         </Link>
 
           <b>{price}</b>

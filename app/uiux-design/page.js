@@ -11,6 +11,7 @@ const courses = [
   {
     id: 1,
     title: "UI Design dengan Figma",
+    slug: "figma-ui-design",
     level: "Pemula",
     desc: "Mendesain antarmuka aplikasi modern dengan Figma.",
     price: "Gratis",
@@ -19,6 +20,7 @@ const courses = [
   {
     id: 2,
     title: "UX Research Dasar",
+    slug: "ux-research-wireframing",
     level: "Pemula",
     desc: "Riset user untuk memahami kebutuhan pengguna.",
     price: "Rp 120.000",
@@ -27,6 +29,7 @@ const courses = [
   {
     id: 3,
     title: "Wireframe & User Flow",
+    slug: "ui-ux-design-fundamental",
     level: "Menengah",
     desc: "Menyusun alur aplikasi yang efektif dan logis.",
     price: "Rp 130.000",
@@ -180,7 +183,7 @@ function CourseCard({ bg, title, level, desc, price }) {
         <p>{desc}</p>
 
         <div className={styles.cardFooter}>
-        <Link href="/daftar?kursus=UI UX Design Dasar">
+        <Link href="/register">
           <button>Daftar</button>
         </Link>
 

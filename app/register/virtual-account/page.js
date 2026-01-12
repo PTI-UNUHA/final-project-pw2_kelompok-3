@@ -2,9 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import styles from "../page.module.css";
 
 export default function VirtualAccountPage() {
+  const router = useRouter();
   const [params, setParams] = useState({ bank: "", total: "" });
 
   useEffect(() => {
@@ -58,6 +60,10 @@ export default function VirtualAccountPage() {
           <p className={styles.waiting}>
             ⏳ Menunggu pembayaran…
           </p>
+
+          <button onClick={() => router.push("/daftar-kursus/sukses")}>
+            Saya Sudah Bayar
+          </button>
         </section>
       </div>
     </main>

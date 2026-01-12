@@ -1,91 +1,88 @@
 .hero {
-  height: 340px;
-  background-size: cover;
-  background-position: center;
   position: relative;
+  padding: 120px 24px 80px;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475")
+    center/cover;
+  color: white;
 }
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-}
+
 .backBtn {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 24px;
+  left: 24px;
+  background: rgba(0,0,0,.5);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
 }
+
 .heroContent {
-  position: absolute;
-  bottom: 20px;
-  left: 16px;
-  color: white;
-  max-width: 600px;
-}
-.container {
-  padding: 20px;
-}
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 12px;
-  background: white;
-  padding: 16px;
-  border-radius: 14px;
-  margin-top: -30px;
-}
-.gallery {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  gap: 10px;
-}
-.galleryImg {
-  height: 120px;
-  background-size: cover;
-  border-radius: 10px;
-}
-.section {
-  margin-top: 40px;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-  gap: 12px;
-}
-.box, .boxAlt {
-  padding: 14px;
-  border-radius: 10px;
-  background: #f4f6f5;
-}
-.accordion {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-.accordion button {
-  width: 100%;
-  padding: 14px;
-  display: flex;
-  justify-content: space-between;
-}
-.testi {
-  display: grid;
-  gap: 12px;
-}
-.testiCard {
-  background: #f4f6f5;
-  padding: 14px;
-  border-radius: 10px;
-}
-.cta {
-  margin: 50px 0;
-  padding: 30px;
-  background: #0f3d2e;
-  color: white;
-  border-radius: 20px;
+  max-width: 720px;
+  margin: auto;
   text-align: center;
 }
-.cta button {
-  margin-top: 12px;
-  padding: 12px 20px;
+
+.badge {
+  background: rgba(255,255,255,.2);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.section {
+  padding: 80px 24px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.infoGrid div {
+  background: #f9fbfa;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.materiList {
+  margin: 24px auto 40px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.materiList li {
+  margin-bottom: 10px;
+}
+
+.ctaBtn {
+  background: #0f3d2e;
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ctaBtn:active {
+  transform: scale(.96);
+}
+
+.notFound {
+  padding: 120px 24px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
 }

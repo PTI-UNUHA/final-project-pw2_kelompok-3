@@ -11,7 +11,10 @@ export default function CoursesPage() {
     <>
       {/* HERO */}
       <section className={styles.hero}>
-        <button className={styles.backBtn} onClick={() => router.push("/")}>
+        <button
+          className={`${styles.backBtn} ${styles.btn}`}
+          onClick={() => router.push("/")}
+        >
           ← Kembali
         </button>
 
@@ -75,7 +78,7 @@ export default function CoursesPage() {
         <h2>Siap Tingkatkan Skill?</h2>
         <p>Mulai belajar sekarang bersama EduCourse UNUHA</p>
         <Link href="/register">
-          <button>Daftar Sekarang →</button>
+          <button className={styles.btnPrimary}>Daftar Sekarang →</button>
         </Link>
       </section>
 
@@ -87,7 +90,6 @@ export default function CoursesPage() {
   );
 }
 
-/* ===================== TAMBAHAN LINK MAP ===================== */
 const courseLinks = {
   "Web Development Dasar": "/courses/web-development",
   "HTML & CSS Fundamental": "/courses/html-css",
@@ -105,7 +107,6 @@ const courseLinks = {
   "UX Research & Wireframing": "/courses/ux"
 };
 
-/* ===================== COURSE CARD ===================== */
 function CourseCard({ bg, title }) {
   return (
     <div className={`${styles.card} ${styles[bg]}`}>
@@ -113,11 +114,9 @@ function CourseCard({ bg, title }) {
       <div className={styles.cardBody}>
         <span className={styles.level}>Pemula</span>
         <h3>{title}</h3>
-        <p className={styles.desc}>
-          Materi lengkap + praktik langsung.
-        </p>
+        <p className={styles.desc}>Materi lengkap + praktik langsung.</p>
         <Link href={courseLinks[title]}>
-          <button>Lihat Kursus →</button>
+          <button className={styles.btnSecondary}>Lihat Kursus →</button>
         </Link>
       </div>
     </div>
