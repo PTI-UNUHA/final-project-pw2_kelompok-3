@@ -285,9 +285,8 @@ export default function RegisterPage() {
             onChange={(e)=>setForm({...form,prodi:e.target.value})}>
             <option value="">Program Studi</option>
             <option>Informatika</option>
+            <option>Pendidikan Teknologi Informasi</option>
             <option>Sistem Informasi</option>
-            <option>Teknik Komputer</option>
-            <option>Manajemen</option>
           </select>
 
           <button className={styles.primaryBtn} onClick={submitForm}>
