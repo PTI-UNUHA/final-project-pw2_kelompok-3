@@ -1,7 +1,12 @@
+"use client";
+
 import styles from "./page.module.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function LandingPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className={styles.homeWrapper}>
       {/* NAVBAR */}
@@ -11,13 +16,19 @@ export default function LandingPage() {
             <span className={styles.logo}>EduCourse</span>
           </div>
 
-          <nav className={styles.menu}>
-            <Link href="/" className={styles.active}>Home</Link>
-            <Link href="/courses">Courses</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/register" className={styles.register}>Register</Link>
+          <nav className={`${styles.menu} ${menuOpen ? styles.menuOpen : ""}`}>
+            <Link href="/" className={styles.active} onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link href="/courses" onClick={() => setMenuOpen(false)}>Courses</Link>
+            <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+            <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link href="/register" className={styles.register} onClick={() => setMenuOpen(false)}>Register</Link>
           </nav>
+
+          <button className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </header>
 
@@ -140,8 +151,8 @@ export default function LandingPage() {
     {/* QUICK LINKS */}
     <div className={styles.footerCol}>
       <h4>Quick Links</h4>
-      <a>About Us</a>
-      <a>Courses</a>
+      <Link href="/about"><a>About Us</a></Link>
+      <Link href="/courses"><a>Courses</a></Link>
       <a>Career</a>
       <a>FAQs</a>
     </div>
@@ -158,10 +169,10 @@ export default function LandingPage() {
     {/* CONNECT (CSS ICON) */}
     <div className={styles.footerCol}>
       <h4>Connect With Us</h4>
-      <div className={`${styles.socialCard} ${styles.youtube}`}>Youtube</div>
-      <div className={`${styles.socialCard} ${styles.instagram}`}>Instagram</div>
-      <div className={`${styles.socialCard} ${styles.facebook}`}>Facebook</div>
-      <div className={`${styles.socialCard} ${styles.linkedin}`}>LinkedIn</div>
+      <Link href="https://youtube.com"><div className={`${styles.socialCard} ${styles.youtube}`}>Youtube</div></Link>
+      <Link href="https://instagram.com"><div className={`${styles.socialCard} ${styles.instagram}`}>Instagram</div></Link>
+      <Link href="https://facebook.com"><div className={`${styles.socialCard} ${styles.facebook}`}>Facebook</div></Link>
+      <Link href="https://linkedin.com"><div className={`${styles.socialCard} ${styles.linkedin}`}>LinkedIn</div></Link>
     </div>
 
   </div>
