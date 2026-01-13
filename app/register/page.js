@@ -14,6 +14,10 @@ const COURSES = [
   { name: "Flutter Mobile App", price: 150000 },
   { name: "React Native", price: 150000 },
   { name: "Firebase untuk Mobile App", price: 100000 },
+  { name: "UI/UX Design", price: 150000 },
+  { name: "UI/UX Mobile Design", price: 100000 },
+  { name: "Figma untuk UI Design", price: 100000 },
+  { name: "UX Research & Wireframing", price: 100000 },
 ];
 
 export default function RegisterPage() {
